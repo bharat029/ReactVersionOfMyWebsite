@@ -29,22 +29,21 @@
 #sidebar-container {
   z-index: 2;
   position: fixed;
-  margin: 0;
-  padding: 0;
   left: -100%;
-  background:rgba(0, 0, 0, 0.5);  
-  overflow-y: auto;
-  overflow-x: hidden;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  overflow: hidden;
   text-align: center;
   transition: 500ms;
  }
 
 #sidebar {
-  margin: 0;
-  padding: 0;
-  width: 400px;
-  height: 90vh;
-  background: black;
+  width: 80vw;
+  margin-top: 45px;
+  height: 90vmax;
+  background: rgb(25, 25, 25);
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
 }
@@ -54,23 +53,23 @@
 }
 
 #me > img {
-  border: 5px solid grey; 
+  border: 5px solid black; 
   height: 30vh; 
   width: 30vh; 
-  margin: 30px auto 30px auto;
+  max-width: 175px;
+  max-height: 175px;
+  margin: 5vh auto;
   border-radius: 50%;
 }
 
 #me > h1 {
   width: 100%;
   font-weight: bold;
-  margin: 0;
-  margin-bottom: 15px;
 }
 
 #me > h5, #me span {
   width: 100%;
-  margin: 15px;
+  padding: 0 15px;
   text-align: center;
 }
 
@@ -80,11 +79,9 @@
 
 .contact-info {
   display: flex;
-  position: absolute;
   width: 50%;
-  bottom: 0;
   padding: 0 0 0 30px;
-  margin: 0 auto;
+  margin: 45px auto 0 auto;
   justify-content: space-around;
   list-style: none;
 }
@@ -148,10 +145,19 @@
   color: #3B5998;
 }
 
+@media screen and (orientation: landscape) {
+  #me > img {
+    margin-bottom: 0;
+  }
+  .contact-info {
+    margin: 10px 0 0 20vw;
+  }
+}
+
 @media (min-width: 768px) {
   #sidebar-container {
     left: 0;
-    background: black;
+    background: rgb(25, 25, 25);
   }
 
   #sidebar {
@@ -160,25 +166,33 @@
     border-bottom-right-radius: 0;
   }
 
+  #me > img {
+    margin: 5vh auto 0 auto;
+  }
+  
+  #me > h5, #me span {
+    padding: 5vh 15px 0 15px;
+  }
+  
   .contact-info {
     width: 100%;
+    padding: 0;
+    margin: 13vh auto 0 auto;
   }
 }
 
 /* Main Content */
 #main-content {
   overflow-y: scroll; 
-  padding: 0;
-  padding-left: 30px;
   overflow: -moz-scrollbars-none; 
   -ms-overflow-style: none; 
-  height: 100vh;  
+  height: 90vh;  
 }
 
 #page-title {
   width: 100%;
   padding-left: 30px;
-  border-bottom: 1px solid wheat;
+  border-bottom: 2px solid wheat;
   margin: 30px -30px;
 }
 
@@ -186,3 +200,28 @@
   display: none;
 }
 
+/* Projects */
+.project {
+  box-sizing: border-box;
+  height: 115px;
+  overflow: hidden;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin: 2px;
+}
+
+.project a {
+  display: block;
+  margin: 0 -15px;
+  padding: 0 0 0 30px;
+  border-bottom: 1px solid white;
+  width: 105%;
+}
+
+.project a:hover {
+  text-decoration: none;
+}
+
+.project p {
+  padding: 0 0 0 5px;
+}

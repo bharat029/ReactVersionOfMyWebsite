@@ -30,6 +30,7 @@
   z-index: 2;
   position: fixed;
   left: -100%;
+  margin: 0;
   padding: 0;
   background: rgba(0, 0, 0, 0.5);
   color: white;
@@ -202,26 +203,43 @@
 
 /* Projects */
 .project {
+  display: block;
   box-sizing: border-box;
-  height: 115px;
+  height: 110px;
+  width: 95%;
   overflow: hidden;
   border: 1px solid white;
   border-radius: 15px;
-  margin: 2px;
+  transition: 250ms;
 }
 
-.project a {
-  display: block;
+.project h5 {
   margin: 0 -15px;
   padding: 0 0 0 30px;
   border-bottom: 1px solid white;
   width: 105%;
 }
 
-.project a:hover {
+.project:hover, .project:focus {
   text-decoration: none;
+  transform: scale(1.1);
 }
 
 .project p {
   padding: 0 0 0 5px;
+}
+
+/* Specialization */
+.specialization, .course {
+  cursor: pointer;
+  width: 100%;
+}
+
+.specialization .title, .course .title {
+  width: 100%;
+  border-bottom: 1px solid white;
+}
+
+.specialization:hover .title {
+  text-decoration: underline;
 }

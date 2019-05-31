@@ -187,10 +187,10 @@
   overflow-y: scroll; 
   overflow: -moz-scrollbars-none; 
   -ms-overflow-style: none; 
-  height: 90vh;  
+  height: 95vh;  
 }
 
-#page-title {
+.page-title {
   width: 100%;
   padding-left: 30px;
   border-bottom: 2px solid wheat;
@@ -207,6 +207,7 @@
   box-sizing: border-box;
   height: 110px;
   width: 95%;
+  margin: 5px;
   overflow: hidden;
   border: 1px solid white;
   border-radius: 15px;
@@ -222,7 +223,7 @@
 
 .project:hover, .project:focus {
   text-decoration: none;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .project p {
@@ -242,4 +243,42 @@
 
 .specialization:hover .title {
   text-decoration: underline;
+}
+
+/* CV */
+#download-btn-container {
+  position: relative;
+}
+
+#download-btn-container a {
+  font-size: 20px;
+  position: absolute;
+  margin-top: 100px; 
+  text-decoration: none;
+  bottom: 50px;
+  right: 10px;
+}
+
+/* Admin */
+.admin-navi {
+  background: yellowgreen;
+  color: white;
+  margin: 0 -14px;
+  text-align: center;
+  text-decoration: none;
+  transition: 250ms;
+}
+
+.admin-navi:hover, .admin-navi:focus, .admin-navi.active {
+  background: lightblue;
+  color: black;
+  text-decoration: none;
+}
+
+.btn-outline-primary:hover {
+  background: inherit;
+}
+
+.link-unstyled:hover {
+  text-decoration: none;
 }

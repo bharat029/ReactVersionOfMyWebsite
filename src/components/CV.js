@@ -1,44 +1,69 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
-import { compose } from 'redux'
-import { firestoreConnect } from 'react-redux-firebase'
-import {Link} from 'react-router-dom';
+import Education from './CV/Education'
+import ProfessionalInterests from './CV/ProfessionalInterests'
+import Hobbies from './CV/Hobbies'
+import POR from './CV/POR'
+import ComputerSkills from './CV/ComputerSkills'
+import Hackathon from './CV/Hackathon'
+import VE from './CV/VE'
 
-const ProjectListView = ({ projects }) => {
+const CV = () => {
   return (
     <>
       <Helmet>
-        <title>Projects - Bharathan Mudaliar</title>
+        <title>CV - Bharathan Mudaliar</title>
       </Helmet>
-      <div id="page-title" className="row">
-        <h3>Projects</h3>
+      <div className="row page-title">
+        <h4>Education</h4>
       </div>
-      <div id="page-content">
-        <p>All of my projects can be found <a class="text-white" href="https://github.com/bharat029/">here</a></p>
-        <div className="row mt-5">
-          <ul className="list-unstyled col-11 offset-1">
-          {
-            projects 
-            ? projects.map(project =><li key={project.id}><Link className="text-white" to={"/projects/" + project.id}><h5>{project.title}</h5></Link><p>{project['s-desc']}</p></li>) 
-            : <p>Loading Data... Please wait!!</p>
-          }
-          </ul>
-        </div>
+      <div className="page-content">
+        <Education />
+      </div>
+      <div className="row page-title">
+        <h4>Professional Interest</h4>
+      </div>
+      <div className="page-content">
+        <ProfessionalInterests />
+      </div>
+      <div className="row page-title">
+        <h4>Computer Skills</h4>
+      </div>
+      <div className="page-content">
+        <ComputerSkills />
+      </div>
+      <div className="row page-title">
+        <h4>Possitions Of Responsibility</h4>
+      </div>
+      <div className="page-content">
+        <POR />
+      </div>
+      <div className="row page-title">
+        <h4>Hackathon</h4>
+      </div>
+      <div className="page-content">
+        <Hackathon />
+      </div>
+      <div className="row page-title">
+        <h4>Volunteer Experience</h4>
+      </div>
+      <div className="page-content">
+        <VE />
+      </div>
+      <div className="row page-title">
+        <h4>Hobbies/Interests</h4>
+      </div>
+      <div className="page-content">
+        <Hobbies />
+      </div>
+      <br /><br /><br /><br /><br /><br /><br /><br />
+      <div id='download-btn-container'>
+        <a href="https://firebasestorage.googleapis.com/v0/b/bharathanmudaliar.appspot.com/o/files%2FResume.pdf?alt=media&token=08edaf92-52f0-4017-8939-0302b6b582f4" rel="noopener noreferrer" className='btn btn-primary' target='_blank'>
+          <i className='fa fa-download'></i> Download CV
+        </a>
       </div>
     </>
   )
 }
 
-const mapStateToProp = (state) => {
-  return {
-    projects: state.firestore.ordered.projects
-  }
-}
-
-export default compose(
-  connect(mapStateToProp),
-  firestoreConnect([
-    { collection: 'projects' }
-  ])
-)(ProjectListView)
+export default CV

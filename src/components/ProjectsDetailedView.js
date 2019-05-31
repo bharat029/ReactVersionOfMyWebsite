@@ -13,10 +13,10 @@ const ProjectsDetailedView = ({project}) => {
 		{
 			project 
 			? <>
-					<div id="page-title" className="row">
+					<div className="row page-title">
 						<h3>{project.title}</h3>
 					</div>
-					<div id="page-content">
+					<div className="page-content">
 						{project['desc-1'] && <p>{project['desc-1']}</p>}
 						{project['desc-2'] && <p>{project['desc-2']}</p>}
 						{project['desc-3'] && <p>{project['desc-3']}</p>}

@@ -10,7 +10,7 @@ const AboutMe = ({ aboutme }) => {
       <Helmet>
         <title>About Me - Bharathan Mudaliar</title>
       </Helmet>
-      <div id="page-title" className="row">
+      <div className="row page-title">
         <h3>About Me</h3>
       </div>
       <div id="page-content">
@@ -33,6 +33,6 @@ const mapStateToProp = (state) => {
 export default compose(
   connect(mapStateToProp),
   firestoreConnect([
-    { collection: 'aboutme' }
+    { collection: 'aboutme', orderBy: ['createdOn']}
   ])
 )(AboutMe)

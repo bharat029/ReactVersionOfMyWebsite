@@ -92,7 +92,7 @@
   display: block;
   height: 30px;
   width: 30px;
-  font-size: 20px;
+  font-size: 1.5rem;
   margin: 10px;
   line-height: 1.3em;
   text-align: center;
@@ -184,6 +184,7 @@
 
 /* Main Content */
 #main-content {
+  font-size: 0.8rem;
   overflow-y: scroll; 
   overflow: -moz-scrollbars-none; 
   -ms-overflow-style: none; 
@@ -241,8 +242,14 @@
   border-bottom: 1px solid white;
 }
 
-.specialization:hover .title {
-  text-decoration: underline;
+#course-list {
+  transform-origin: 25px 25px;
+  animation: showup 1s ease-in-out forwards;
+}
+
+@keyframes showup {
+  0% {opacity: 0; transform: skew(90deg, 90deg);}
+  100% {opacity: 1; transform: skew(0deg, 0deg);}
 }
 
 /* CV */
@@ -251,7 +258,7 @@
 }
 
 #download-btn-container a {
-  font-size: 20px;
+  font-size: 1.5rem;
   position: absolute;
   margin-top: 100px; 
   text-decoration: none;

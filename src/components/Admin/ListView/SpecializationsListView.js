@@ -77,8 +77,8 @@ const mapDispatchToProp = dispatch => {
 export default compose(
   connect(mapStateToProp, mapDispatchToProp),
   firestoreConnect([
-    { collection: 'specializations', orderBy: ['createdOn', 'desc'] },
-    { collection: 'scourses', orderBy: ['createdOn', 'desc'] }
+    { collection: 'specializations', orderBy: ['createdOn'] },
+    { collection: 'scourses', orderBy: ['createdOn'] }
   ])
 )(SpecializationsListView)
   

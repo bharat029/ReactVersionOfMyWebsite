@@ -92,7 +92,7 @@ export default compose(
   connect(mapStateToProp, mapDispatchToProp),
   firestoreConnect([
     { collection: 'specializations' },
-    { collection: 'scourses', orderBy: ['createdOn', 'desc'] }
+    { collection: 'scourses', orderBy: ['createdOn'] }
   ])
 )(SpecializationsDetailedView)
   

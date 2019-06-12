@@ -13,7 +13,7 @@ const Specialization = ({ specialization, scourses }) => {
     if(state.courses){
       if(state.display){
         console.log(courseList.current.firstChild)
-        courseList.current.firstChild.classList = "m-2 border hide rounded"
+        courseList.current.firstChild.classList = "m-2 border course-list hide rounded"
         setTimeout(() => {
           setState({ ...state, display: false })
         }, 500)
@@ -37,7 +37,7 @@ const Specialization = ({ specialization, scourses }) => {
       { 
         state.display 
         ? <div ref={courseList} className="col-md-6 col-11">
-            <div id="course-list" className="m-2 border show rounded">
+            <div className="m-2 course-list border show rounded">
               <CoursesListView courses={state.courses} offeredBy={specialization.offeredBy} plateform={specialization.plateform} certi={specialization.certi} />
             </div>
           </div>

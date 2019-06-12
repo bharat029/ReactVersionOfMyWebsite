@@ -253,12 +253,12 @@
   border-bottom: 1px solid white;
 }
 
-#course-list.show {
+.course-list.show {
   transform-origin: 25px 25px;
   animation: showup 500ms ease-in-out forwards;
 }
 
-#course-list.hide {
+.course-list.hide {
   transform-origin: 25px 25px;
   animation: hide 500ms ease-in-out forwards;
 }

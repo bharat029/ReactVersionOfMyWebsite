@@ -2,7 +2,7 @@ import React from 'react'
 
 const CoursesListView = ({courses, offeredBy, certi, plateform}) => {
   return (
-    <div id="course-list" className="m-2 border rounded">
+    <>
       <h4 className="h6 pl-1 m-1">List of Courses:</h4>
       <ul className="list-unstyled">
         {
@@ -10,7 +10,7 @@ const CoursesListView = ({courses, offeredBy, certi, plateform}) => {
         }
         <li><a href={certi} rel="noopener noreferrer" target="_blank" className="d-block link-unstyled text-white"><small>See Specialization Certificate</small></a></li>
       </ul>
-    </div>
+    </>
   )
 }
 

@@ -12,7 +12,7 @@ const ProjectsDetailedView = ({project}) => {
 		</Helmet>
 		{
 			project 
-			? <>
+			? <div id="project-details" className="m-0 p-0">
 					<div className="row page-title">
 						<h3>{project.title}</h3>
 					</div>
@@ -31,10 +31,10 @@ const ProjectsDetailedView = ({project}) => {
 						<br /><br />
 						<a href={project.repo} className="text-white">See Repository</a>
 					</div>
-				</>
+				</div>
 				: <h3>Project Not Found</h3>
 			}
-	</>
+		</>
   )
 }
 

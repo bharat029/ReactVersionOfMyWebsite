@@ -13,6 +13,7 @@ import SpecializationsListView from './ListView/SpecializationsListView'
 import SpecializationsDetailedView from './ListView/SpecializationsDetailedView'
 import CVListView from './ListView/CVListView'
 import EducationListView from './ListView/EducationListView'
+import InternshipsListView from './ListView/InternshipsListView'
 import PIListView from './ListView/PIListView'
 import CSListView from './ListView/CSListView'
 import PORListView from './ListView/PORListView'
@@ -20,7 +21,7 @@ import HackathonListView from './ListView/HackathonListView'
 import VEListView from './ListView/VEListView'
 import InterestListView from './ListView/InterestListView'
 
-const Admin = ({ auth }) => {
+const Admin = ({ auth, signOut }) => {
   if(auth.uid){
     return (
       <>
@@ -30,7 +31,7 @@ const Admin = ({ auth }) => {
         <div className="page">
           <div className="row page-title">
             <h2 className="col-10">Welcome Bharat</h2>
-            <div className="ol-2"><button className="btn btn-primary" onClick={() => this.props.signOut()}>Log Out</button></div>
+            <div className="ol-2"><button className="btn btn-primary" onClick={() => signOut()}>Log Out</button></div>
           </div>
           <div id="page-content">
             <Router>
@@ -54,6 +55,7 @@ const Admin = ({ auth }) => {
               <Route path="/admin/cv/hackathon" component={HackathonListView} />
               <Route path="/admin/cv/ve" component={VEListView} />
               <Route path="/admin/cv/interest" component={InterestListView} />
+              <Route path="/admin/cv/internships" component={InternshipsListView} />
             </Router>
           </div>
         </div>  

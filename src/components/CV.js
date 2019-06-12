@@ -4,6 +4,7 @@ import Education from './CV/Education'
 import ProfessionalInterests from './CV/ProfessionalInterests'
 import Hobbies from './CV/Hobbies'
 import POR from './CV/POR'
+import Internships from './CV/Internships'
 import ComputerSkills from './CV/ComputerSkills'
 import Hackathon from './CV/Hackathon'
 import VE from './CV/VE'
@@ -15,43 +16,49 @@ const CV = () => {
         <title>CV - Bharathan Mudaliar</title>
       </Helmet>
       <div className="row page-title">
-        <h4>Education</h4>
+        <h4><i className="fa fa-graduation-cap pr-3" />Education</h4>
       </div>
       <div className="page-content">
         <Education />
       </div>
       <div className="row page-title">
-        <h4>Professional Interest</h4>
+        <h4><i className="fa fa-laptop pr-3" />Professional Interest</h4>
       </div>
       <div className="page-content">
         <ProfessionalInterests />
       </div>
       <div className="row page-title">
-        <h4>Computer Skills</h4>
+        <h4><i className="fa fa-terminal pr-3" />Computer Skills</h4>
       </div>
       <div className="page-content">
         <ComputerSkills />
       </div>
       <div className="row page-title">
-        <h4>Possitions Of Responsibility</h4>
+        <h4><i className="fa fa-user pr-3" />Positions Of Responsibility</h4>
       </div>
       <div className="page-content">
         <POR />
       </div>
       <div className="row page-title">
-        <h4>Hackathon</h4>
+        <h4><i className="fa fa-briefcase pr-3" />Internship Experience</h4>
+      </div>
+      <div className="page-content">
+        <Internships />
+      </div>
+      <div className="row page-title">
+        <h4><i className="fa fa-cogs pr-3" />Hackathon</h4>
       </div>
       <div className="page-content">
         <Hackathon />
       </div>
       <div className="row page-title">
-        <h4>Volunteer Experience</h4>
+        <h4><i className="fa fa-bookmark pr-3" />Volunteer Experience</h4>
       </div>
       <div className="page-content">
         <VE />
       </div>
       <div className="row page-title">
-        <h4>Hobbies/Interests</h4>
+        <h4><i className="fa fa-cubes pr-3" />Hobbies/Interests</h4>
       </div>
       <div className="page-content">
         <Hobbies />

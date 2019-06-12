@@ -7,6 +7,10 @@
   flex: 1;
 }
 
+.navbar-nav a {
+  height: 50px;
+}
+
 .navbar-nav .active,.navbar-nav a:hover  {
   background: rgb(212, 206, 206);
   color: black !important;
@@ -20,11 +24,10 @@
 
 @media (min-width: 768px) {
   #nav {
-    height: 40px;
+    height: 50px;
     overflow: hidden;
   }
 }
-
 /* Sidebar */
 #sidebar-container {
   z-index: 2;
@@ -43,7 +46,7 @@
 #sidebar {
   width: 80vw;
   margin-top: 45px;
-  height: 90vmax;
+  height: calc(100vh - 50px);
   background: rgb(25, 25, 25);
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
@@ -150,6 +153,7 @@
   #me > img {
     margin-bottom: 0;
   }
+
   .contact-info {
     margin: 10px 0 0 20vw;
   }
@@ -176,9 +180,11 @@
   }
   
   .contact-info {
+    position: absolute;
     width: 100%;
     padding: 0;
-    margin: 13vh auto 0 auto;
+    margin: 0 auto;
+    bottom: 25px;
   }
 }
 
@@ -188,7 +194,7 @@
   overflow-y: scroll; 
   overflow: -moz-scrollbars-none; 
   -ms-overflow-style: none; 
-  height: 95vh;  
+  height: calc(100vh - 50px);  
 }
 
 .page-title {
@@ -206,9 +212,8 @@
 .project {
   display: block;
   box-sizing: border-box;
-  height: 110px;
-  width: 95%;
-  margin: 5px;
+  height: 125px;
+  width: 90%;
   overflow: hidden;
   border: 1px solid white;
   border-radius: 15px;
@@ -224,11 +229,17 @@
 
 .project:hover, .project:focus {
   text-decoration: none;
-  transform: scale(1.15);
+  transform: scale(1.20);
 }
 
-.project p {
-  padding: 0 0 0 5px;
+#project-details{
+  transform-origin: 50% 50vh;
+  animation: projectShowUp 500ms ease-in-out forwards;
+}
+
+@keyframes projectShowUp {
+  0% {transform: scale(0.25);}
+  100% {transform: scale(1);}
 }
 
 /* Specialization */
@@ -242,14 +253,24 @@
   border-bottom: 1px solid white;
 }
 
-#course-list {
+#course-list.show {
   transform-origin: 25px 25px;
-  animation: showup 1s ease-in-out forwards;
+  animation: showup 500ms ease-in-out forwards;
+}
+
+#course-list.hide {
+  transform-origin: 25px 25px;
+  animation: hide 500ms ease-in-out forwards;
 }
 
 @keyframes showup {
   0% {opacity: 0; transform: skew(90deg, 90deg);}
   100% {opacity: 1; transform: skew(0deg, 0deg);}
+}
+
+@keyframes hide {
+  0% {opacity: 1; transform: skew(0deg, 0deg);}
+  100% {opacity: 0; transform: skew(90deg, 90deg);}
 }
 
 /* CV */

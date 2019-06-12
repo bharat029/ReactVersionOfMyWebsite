@@ -158,3 +158,26 @@ export const updateVE = (ve, id) => {
     firestore.collection('ve').doc(id).update({ ...ve })
   }
 }
+
+export const addInternship = (internships) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore()
+    firestore.collection('internships').add({ ...internships }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+
+export const deleteInternship = (id) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore()
+    firestore.collection('internships').doc(id).delete()
+  }
+}
+
+export const updateInternship = (internships, id) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore()
+    firestore.collection('internships').doc(id).update({ ...internships })
+  }
+}

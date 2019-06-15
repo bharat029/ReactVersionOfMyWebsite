@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import Education from './CV/Education'
 import ProfessionalInterests from './CV/ProfessionalInterests'
@@ -10,6 +10,10 @@ import Hackathon from './CV/Hackathon'
 import VE from './CV/VE'
 
 const CV = () => {
+  useEffect(() => {
+		document.getElementById('main-content').scrollTop = 0
+  }, [])
+
   return (
     <>
       <Helmet>

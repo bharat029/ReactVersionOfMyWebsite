@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 
 const AboutMe = ({ aboutme }) => {
+  useEffect(() => {
+		document.getElementById('main-content').scrollTop = 0
+  }, [])
+
   return (
     <>
       <Helmet>

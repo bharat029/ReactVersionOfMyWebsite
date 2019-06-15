@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { compose } from 'redux'
@@ -6,7 +6,11 @@ import { firestoreConnect } from 'react-redux-firebase'
 import Specialization from './Specialization'
 
 const Course = ({ specializations, courses, scourses }) => {
-  return (
+  useEffect(() => {
+		document.getElementById('main-content').scrollTop = 0
+  }, [])
+
+ return (
     <>
       <Helmet>
         <title>Courses - Bharathan Mudaliar</title>

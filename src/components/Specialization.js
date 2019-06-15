@@ -12,7 +12,6 @@ const Specialization = ({ specialization, scourses }) => {
   const setCourse = e => {
     if(state.courses){
       if(state.display){
-        console.log(courseList.current.firstChild)
         courseList.current.firstChild.classList = "m-2 border course-list hide rounded"
         setTimeout(() => {
           setState({ ...state, display: false })

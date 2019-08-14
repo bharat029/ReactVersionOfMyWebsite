@@ -3,6 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" type="image/x-icon" />
+
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/apple-icon-180x180.png">
+
+    <meta name="apple-mobile-web-app-status-bar" content="#000000" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -16,6 +28,48 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
   <body class="bg-dark container-fluid text-white">
-    <div id="root"></div>
+    <noscript>Your browser does not support JavaScript!</noscript>
+    <div id="root">
+      <nav id="nav" class="navbar navbar-expand-md navbar-dark row sticky-top bg-dark border-bottom">
+        <div class="navbar-brand bg-dark border-0 text-center text-white col-md-3 col-9 m-0 p-0">
+          <span class="float-left">Bharathan Mudaliar</span>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" onClick={collapse} id="navbarNav">
+          <ul class="navbar-nav col-md-9 mr-3">
+            <li class="nav-item">
+              <a class="nav-link text-white text-center" href="/">About me </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-center" href="/projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-center" href="/courses">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-center" href="/cv">CV</a>
+            </li>
+          </ul>
+        </div>
+      </nav>   
+      <h2 class="text-center">Loading...</h2>
+     </div>
+     <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('worker.js').then((registration) => {
+            console.log('Worker registration successful', registration.scope);
+          }, (err) => {
+            console.log('Worker registration failed', err);
+          }).catch((err) => {
+            console.log(err);
+          });
+        });
+      } else {
+        console.log('Service Worker is not supported by browser.');
+      }
+    </script>
   </body>
 </html>

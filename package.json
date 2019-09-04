@@ -1,6 +1,6 @@
 {
   "name": "my-website",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "core-js": "^3.1.2",
@@ -15,7 +15,8 @@
     "react-scripts": "^3.0.0",
     "redux": "^4.0.1",
     "redux-firestore": "^0.8.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "request": "^2.79.0"
   },
   "scripts": {
     "predeploy": "react-scripts build",

@@ -1,7 +1,7 @@
-const staticCacheName = 'site-static-v4'
+const staticCacheName = 'site-static-v5'
+const dynamicCacheName = 'site-dynamic-v5'
 
 const assets = [
-  '/',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
   'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
   'https://code.jquery.com/jquery-3.2.1.slim.min.js',
@@ -27,7 +27,7 @@ self.addEventListener('activate', evt => {
     caches.keys().then(keys => {
       //console.log(keys)
       return Promise.all(keys
-        .filter(key => key !== staticCacheName)
+        .filter(key => key !== staticCacheName && key !== dynamicCacheName)
         .map(key => caches.delete(key))
       )
     })
@@ -41,7 +41,7 @@ self.self.addEventListener('fetch', evt => {
       caches.match(evt.request).then(cacheRes => {
         return cacheRes || fetch(evt.request).then(fetchRes => {
           return caches.open(dynamicCacheName).then(cache => {
-            cache.put(evt.request.url, fetchRes.clone())
+            cache.put(evt.request.url, fetchRes.clone()).catch(err => console.log(err))
             return fetchRes
           })
         })

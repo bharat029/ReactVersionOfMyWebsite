@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 const Aboutme = lazy(() => import('./components/AboutMe'))
 const ProjectsListView = lazy(() => import('./components/ProjectsListView'))
 const ProjectsDetailedView = lazy(() => import('./components/ProjectsDetailedView'))
-const Courses = lazy(() => import(() => import('./components/Courses')))
+const Courses = lazy(() => import('./components/Courses'))
 const CV = lazy(() => import('./components/CV'))
 const Admin = lazy(() => import('./components/Admin/Admin'))
 const SignIn = lazy(() => import('./components/Admin/SignIn'))

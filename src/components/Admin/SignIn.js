@@ -24,7 +24,6 @@ class SignIn extends Component {
     e.preventDefault()
     this.props.signIn(this.state)
   }
-  
 
   render() {
     const { auth, authError} = this.props 
@@ -33,22 +32,24 @@ class SignIn extends Component {
       return (
         <>
           <Helmet>
-            <title>Sign In - Kunjal Panchal</title>
+            <title>Sign In - Bharathan Mudaliar</title>
           </Helmet>
-          <div className="page">
-            <h2 id="page-title">Sign In Admin</h2>
-            <form method="post" onSubmit={this.submited} className="col-md-5 offset-md-1 mt-5" action="">
-              { authError && <div id="alert" className="alert alert-danger" role="alert">{ authError }</div> }
-              <div className="form-group">
-                <label htmlFor="email">Email:</label>
-                <input type="text" onChange={this.changeHandler} className="form-control" placeholder="Email" name="email" id="email" />
+          <div>
+            <div className="row page-title">
+              <h3 className="col s12">Sign In Admin</h3>
+            </div>
+            <form method="post" onSubmit={this.submited} className="col m6 s12 offset-m3 " action="">
+              { authError && <div id="alert" className="red lighten-3 red-text" role="alert">{ authError }</div> }
+              <div className="input-field">
+                <label className="white-text" htmlFor="email">Email</label>
+                <input type="text" onChange={this.changeHandler} name="email" id="email" />
               </div>
-              <div className="form-group">
-                <label htmlFor="password">Password:</label>
-                <input type="password" onChange={this.changeHandler} className="form-control" placeholder="Password"  name="password" id="password" />
+              <div className="input-field">
+                <label className="white-text" htmlFor="password">Password</label>
+                <input type="password" onChange={this.changeHandler} name="password" id="password" />
               </div>
-              <div id='submit' className="form-group col-12 text-center">
-                <button type="submit" className="btn btn-success pl-0 pr-0 text-center col-md-4 col-6">Sign In</button>
+              <div id='submit' className="input-field col s12 center-align">
+                <button type="submit" className="btn green center-align">Sign In</button>
               </div>
             </form>
           </div>

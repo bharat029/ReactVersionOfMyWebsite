@@ -20,47 +20,275 @@
     <meta name="theme-color" content="#000000" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      #mobile-demo {
+        width: 100%;
+        transition: 500ms ease-out;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        z-index: 5;
+        height: 50px;
+        text-align: left;
+        border-bottom: 2px solid white;
+      }
+      #menu {
+        font-size: 2.3rem; 
+        display: fixed;
+        right: 5px;
+        top: 5px;
+        height: 40p;
+        width: 40px;
+      }
+      #title {
+        font-size: 2rem;
+        cursor: pointer;
+        display: inline;
+      }
+      #name {
+        font-size: 2rem; 
+      }
+      #menu-content {
+        display: flex;
+        overflow: hidden;
+        height: 48px;
+        margin: 0;
+        padding: 0;
+      } 
+      #menu-content > li{
+        flex: 1;
+        padding: 0;
+        margin: 0;
+        margin-top: -7px;
+      }
+      #menu-content > li:hover, #mobile-demo > li:hover, .active {
+        background: gray;
+      }
+      #sidebar-container {
+        z-index: 2;
+        position: fixed;
+        left: -100%;
+        margin: 0;
+        padding: 0;
+        background: rgba(0, 0, 0, 0);
+        color: white;
+        text-align: center;
+        overflow: hidden;
+        text-align: center;
+        transition: 500ms;
+       }
+      #sidebar {
+        width: 80vw;
+        margin-top: -15px;
+        height: calc(100vh - 50px);
+        background: rgb(0, 0, 0);
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+      }
+      
+      #me {
+        margin: 10vh 0 0 0;
+      }
+      
+      #me > img {
+        border: 5px solid black; 
+        height: 30vh; 
+        width: 30vh; 
+        max-width: 175px;
+        max-height: 175px;
+        margin: 5vh auto;
+        border-radius: 50%;
+      }
+      
+      #me > h1 {
+        width: 100%;
+        font-weight: bold;
+      }
+      
+      #me > h5, #me span {
+        width: 100%;
+        padding: 0 15px;
+        text-align: center;
+      }
+      
+      #sidebar-container.menu-displayed {
+        left: 0;
+      }
+      
+      .contact-info {
+        display: flex;
+        width: 50%;
+        padding: 0 0 0 30px;
+        margin: 45px auto 0 auto;
+        justify-content: space-around;
+        list-style: none;
+      }
+      
+      .contact-info a {
+        color: white;
+        display: block;
+        height: 30px;
+        width: 30px;
+        font-size: 1.5rem;
+        margin: 10px;
+        line-height: 1.3em;
+        text-align: center;
+        border-radius: 50%;
+        transition: 500ms ease-out;
+      }
+      
+      .contact-info a:hover {
+        text-decoration: none;
+        background: #fff;
+        transform: rotate(360deg);
+      }
+      
+      .contact-info a span {
+        font-size: 0px;
+      }
+      
+      .fa-github {
+        background: #211f1f ;
+      }
+      
+      .fa-github:hover, 
+      .fa-github:focus {
+        color: #211f1f;
+      }
+      
+      .fa-linkedin {
+        background: #007bb5;
+      }
+      
+      .fa-linkedin:hover, 
+      .fa-linkedin:focus {
+        color: #007bb5;
+      }
+      
+      .fa-envelope-square {
+        background: #dd4b39;
+      }
+      
+      .fa-envelope-square:hover,
+      .fa-envelope-square:focus {
+        color: #dd4b39;
+      }
+      
+      .fa-facebook {
+        background: #3B5998;
+      }
+      
+      .fa-facebook:hover,
+      .fa-facebook:focus {
+        color: #3B5998;
+      }
+      
+      @media screen and (orientation: landscape) {
+        #me > img {
+          margin-bottom: 0;
+        }
+        .contact-info {
+          margin: 10px 0 0 20vw;
+        }
+      }
+      @media only screen and (min-width: 601px) {
+        #sidebar-container {
+          left: 0;
+          background: rgb(25, 25, 25);
+        }
+        #title {
+          width: 70%;
+          cursor: pointer;
+        }
+        #sidebar {
+          width: 100%;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        #me > img {
+          margin: 5vh auto 0 auto;
+        }
+        #me > h5, #me span {
+          padding: 5vh 15px 0 15px;
+        }
+        .contact-info {
+          position: absolute;
+          width: 100%;
+          padding: 0;
+          margin: 0 auto;
+          bottom: 25px;
+        }
+      }      
+    </style>
   </head>
-  <body class="bg-dark container-fluid text-white">
+  <body class="grey darken-3 white-text"> 
     <noscript>Your browser does not support JavaScript!</noscript>
     <div id="root">
-      <nav id="nav" class="navbar navbar-expand-md navbar-dark row sticky-top bg-dark border-bottom">
-        <div class="navbar-brand bg-dark border-0 text-center text-white col-md-3 col-9 m-0 p-0">
-          <span class="float-left">Bharathan Mudaliar</span>
+      <nav class="black">
+        <div class="nav-wrapper container">
+          <div class="row">
+            <h1 role="button" class="center-align" id="title">Bharathan Mudaliar</h1>
+            <a href="#" role="button" data-target="mobile-demo" id='menu' class="col s10 m6 right hide-on-large-only dropdown-trigger"><i class="material-icons">menu</i></a>
+            <ul id="menu-content" class="col m6 right hide-on-med-and-down">
+              <li><a href="#" class="center-align">About Me</a></li>
+              <li><a href="#" class="center-align">Projects</a></li>
+              <li><a href="#" class="center-align">Courses</a></li>
+              <li><a href="#" class="center-align">CV</a></li>
+            </ul>
+          </div>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" onClick={collapse} id="navbarNav">
-          <ul class="navbar-nav col-md-9 mr-3">
-            <li class="nav-item">
-              <a class="nav-link text-white text-center" href="/">About me </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white text-center" href="/projects">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white text-center" href="/courses">Courses</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white text-center" href="/cv">CV</a>
-            </li>
-          </ul>
+        <ul id="mobile-demo" class="dropdown-content hide-on-large-only black white-text">
+          <li><a href="#" class="center-align">About Me</a></li>
+          <li><a href="#" class="center-align">Projects</a></li>
+          <li><a href="#" class="center-align">Courses</a></li>
+          <li><a href="#" class="center-align">CV</a></li>
+        </ul>
+      </nav>
+      <div class="row">
+        <div id="sidebar-container" class="col m3">
+          <div id="sidebar">
+            <div id="me" class="row">
+              <img src="https://firebasestorage.googleapis.com/v0/b/bharathanmudaliar.appspot.com/o/imgs%2Fme.jpg?alt=media&token=e9e0f9d8-bd37-4e60-81e3-f49529b6b103" alt="Bharathan Mudaliar" />
+              <h1 id="name">Bharathan Mudaliar</h1>
+              <h5>BE (CSE) student</h5>
+              <span>An Enthusiastic learner on MOOC Platforms, especially passionate about Deep Learning</span>
+            </div>
+            <div id="contact" class="row">
+              <ul class="contact-info">
+                <li>
+                  <a href="mailto:vbharathan.2013@gmail.com" rel="noopener noreferrer" target='_blank' class="fa fa-envelope-square"><span>E-mail</span></a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/v-bharathan-mudaliar-51289b157/" rel="noopener noreferrer" target='_blank' class="fa fa-linkedin"><span>Linkedin</span></a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/bharathan.vs" rel="noopener noreferrer" target='_blank' class="fa fa-facebook"><span>Facebook</span></a>
+                </li>
+                <li>
+                  <a href="https://github.com/bharat029/" rel="noopener noreferrer" target='_blank' class="fa fa-github"><span>Github</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </nav>   
-      <h2 class="text-center">Loading...</h2>
-     </div>
-     <script>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/worker.js')
           .then(reg => console.log('Worker registration successful'))
-          .catch(err => console.log('Worker not registered'))
+          .catch(err => console.log('Worker not registered', err))
       }
     </script>
   </body>

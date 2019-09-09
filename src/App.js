@@ -15,12 +15,12 @@ const SignIn = lazy(() => import('./components/Admin/SignIn'))
 class App extends Component { 
   render() {
     return (
-      <>
+      <div className="row">
         <Router>
           <SideBar />
           <Navbar />
-          <div className="col-md-9 offset-md-3" id="main-content">
-            <Suspense fallback="<div class='h2'>Loadiing...</div>">
+          <div className="col m9 offset-m3" id="main-content">
+            <Suspense fallback="<div>Loadiing...</div>">
               <Route exact path="/" component={Aboutme} />
               <Route exact path="/projects" component={ProjectsListView} />
               <Route exact path="/projects/:projectID" component={ProjectsDetailedView} />
@@ -32,7 +32,7 @@ class App extends Component {
             </Suspense>
           </div>
         </Router>
-      </>
+      </div>
     )
   }
 }

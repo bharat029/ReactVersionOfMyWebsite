@@ -5,7 +5,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 
 const ProfessionalInterests = ({ pinterest }) => {
   return (
-    <ul>
+    <ul className="browser-default">
       {
         pinterest 
         ? pinterest.map(pint => <li key={pint.id}>{pint.pint}</li>)

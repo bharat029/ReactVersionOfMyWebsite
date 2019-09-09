@@ -17,7 +17,7 @@ const AboutMe = ({ aboutme }) => {
       <div className="row page-title">
         <h3>About Me</h3>
       </div>
-      <div id="page-content">
+      <div className="page-content">
       {
         aboutme 
         ? aboutme.map(abtme => <p key={abtme.id}>{abtme.abtme}</p>) 

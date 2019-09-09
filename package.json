@@ -6,6 +6,7 @@
     "core-js": "^3.1.2",
     "dotenv": "^8.0.0",
     "firebase": "^6.0.2",
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
@@ -16,7 +17,7 @@
     "redux": "^4.0.1",
     "redux-firestore": "^0.8.0",
     "redux-thunk": "^2.3.0",
-    "request": "^2.79.0"
+    "request": "^2.88.0"
   },
   "scripts": {
     "predeploy": "react-scripts build",

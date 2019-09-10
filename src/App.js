@@ -15,7 +15,7 @@ const SignIn = lazy(() => import('./components/Admin/SignIn'))
 class App extends Component { 
   render() {
     return (
-      <div className="row">
+      <div className="row" style={{ padding: '0', margin: '0' }}>
         <Router>
           <SideBar />
           <Navbar />

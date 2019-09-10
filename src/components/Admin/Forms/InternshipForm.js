@@ -24,25 +24,25 @@ const CSForm = ({ internship, changeView, add, update }) => {
   }
   
   return (
-    <form method="post" onSubmit={submitHnadler} className="col-md-6 m-5" action="">
-      <div className="form-group">
-        <label htmlFor="title">Skill Title:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="Internship Title" defaultValue={internship && internship.title} name="title" id="title" />
+    <form method="post" onSubmit={submitHnadler} className="col m6 s12" action="">
+      <div className="input-field">
+        <label className={internship? 'active' : ''} htmlFor="title">Title</label>
+        <input type="text" onChange={changeHandler} defaultValue={internship && internship.title} name="title" id="title" />
       </div>
-      <div className="form-group">
-        <label htmlFor="dur">Internship Duration:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="Internship Duration" defaultValue={internship && internship.dur} name="dur" id="dur" />
+      <div className="input-field">
+        <label className={internship? 'active' : ''} htmlFor="dur">Duration</label>
+        <input type="text" onChange={changeHandler} defaultValue={internship && internship.dur} name="dur" id="dur" />
       </div>
-      <div className="form-group">
-        <label htmlFor="certi">Internship Description:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="Internship Description" defaultValue={internship && internship.desc} name="desc" id="desc" />
+      <div className="input-field">
+        <label className={internship? 'active' : ''} htmlFor="certi">Description</label>
+        <input type="text" onChange={changeHandler} defaultValue={internship && internship.desc} name="desc" id="desc" />
       </div>
-      <div className="form-group">
-        <label htmlFor="desc">Internship Certificate Link:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="Internship Certificate Link" defaultValue={internship && internship.certi} name="certi" id="certi" />
+      <div className="input-field">
+        <label className={internship? 'active' : ''} htmlFor="desc">Certificate Link</label>
+        <input type="text" onChange={changeHandler} defaultValue={internship && internship.certi} name="certi" id="certi" />
       </div>
-      <div id='submit' className="form-group col-12 text-center">
-          <button type="submit" className="btn btn-success pl-0 pr-0 text-center col-md-4 col-6">{ internship ? "Update" : "Submit" }</button>
+      <div id='submit' className="input-field col s12 center">
+          <button type="submit" className="btn green">{ internship ? "Update" : "Submit" }</button>
       </div>
     </form>
   )

@@ -43,14 +43,14 @@ class SpecializationsListView extends Component {
         {
           this.state.ListView 
           ? <>
-            <ul className="list-unstyled">
+            <ul>
               {
                 specializations  
-                ? specializations.map((spec, idx) => <li key={spec.id} className="mt-3 ml-3 border rounded row"><Link to={ '/admin/courses/specializations/' + spec.id } className="text-white link-unstyled col-11">{ spec.title }</Link><button onClick={this.delete} id={spec.id} className="btn btn-outline-primary text-white col-1 p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
+                ? specializations.map((spec, idx) => <li key={spec.id} className="border rounded row"><Link to={ '/admin/courses/specializations/' + spec.id } className="white-text link-unstyled col s11">{ spec.title }</Link><button onClick={this.delete} id={spec.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
                 : <p>Loading Data... Please wait!!</p>
               }
             </ul>
-            <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6">Add</button>
+            <button onClick={this.add} className="btn green">Add</button>
           </>
           : <SpecializationForm changeView={this.changeView} add={addSpecialization} /> 
         }

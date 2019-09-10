@@ -43,14 +43,14 @@ class CSListView extends Component {
       {
         this.state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               cskill 
-              ? cskill.map((cs, idx) => <li key={cs.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ cs.title }</span><button onClick={(e) => deleteCS(e.target.id)} id={cs.id} className="btn btn-outline-primary col-1 text-white p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>)
+              ? cskill.map((cs, idx) => <li key={cs.id} className="border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ cs.title }</span><button onClick={(e) => deleteCS(e.target.id)} id={cs.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>)
               : <p key="loadingedu">Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6" id="aboutmeform">Add</button>
+          <button onClick={this.add} className="btn green">Add</button>
         </>
         : <CSForm cskill={this.state.cskill} changeView={this.changeView} add={addCS}  update={updateCS}  /> 
       }

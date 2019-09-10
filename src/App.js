@@ -19,7 +19,7 @@ class App extends Component {
         <Router>
           <SideBar />
           <Navbar />
-          <div className="col m9 offset-m3" id="main-content">
+          <div className="col m9 s12 offset-m3" id="main-content">
             <Suspense fallback="<div>Loadiing...</div>">
               <Route exact path="/" component={Aboutme} />
               <Route exact path="/projects" component={ProjectsListView} />

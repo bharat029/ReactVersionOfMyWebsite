@@ -23,7 +23,7 @@ const ProjectListView = ({ projects }) => {
         <ul className="row project-row">
           {
             projects 
-            ? projects.map(project =><li key={project.id} className="col m6"><Link className="white-text project" to={"/projects/" + project.id}><h5>{project.title}</h5><p className="proj-desc">{project['s-desc']}</p></Link></li>) 
+            ? projects.map(project =><li key={project.id} className="col m6 s12"><Link className="white-text card grey darken-3 center-align project" to={"/projects/" + project.id}><h5 className="card-title">{project.title}</h5><p className="proj-desc">{project['s-desc']}</p></Link></li>) 
             : <p>Loading Data... Please wait!!</p>
           }
         </ul>

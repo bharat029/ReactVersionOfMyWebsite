@@ -43,14 +43,14 @@ class HackathonListView extends Component {
       {
         this.state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               hackathon 
-              ? hackathon.map((hk, idx) => <li key={hk.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ hk.title }</span><button onClick={(e) => deleteHackathon(e.target.id)} id={hk.id} className="btn btn-outline-primary col-1 text-white p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>)
+              ? hackathon.map((hk, idx) => <li key={hk.id} className="border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ hk.title }</span><button onClick={(e) => deleteHackathon(e.target.id)} id={hk.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>)
               : <p key="loadingedu">Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6" id="aboutmeform">Add</button>
+          <button onClick={this.add} className="btn green">Add</button>
         </>
         : <HackathonForm hackathon={this.state.hackathon} changeView={this.changeView} add={addHackathon}  update={updateHackathon}  /> 
       }

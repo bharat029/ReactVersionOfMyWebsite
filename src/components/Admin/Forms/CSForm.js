@@ -24,17 +24,17 @@ const CSForm = ({ cskill, changeView, add, update }) => {
   }
 
   return (
-    <form method="post" onSubmit={submitHnadler} className="col-md-6 m-5" action="">
-      <div className="form-group">
-        <label htmlFor="title">Skill Title:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="Skill Title" defaultValue={cskill && cskill.title} name="title" id="title" />
+    <form method="post" onSubmit={submitHnadler} className="col m6 s12" action="">
+      <div className="input-field">
+        <label className={cskill? 'active' : ''} htmlFor="title">Title</label>
+        <input type="text" onChange={changeHandler} defaultValue={cskill && cskill.title} name="title" id="title" />
       </div>
-      <div className="form-group">
-        <label htmlFor="desc">Skill Description:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="Skill Description" defaultValue={cskill && cskill.desc} name="desc" id="desc" />
+      <div className="input-field">
+        <label className={cskill? 'active' : ''} htmlFor="desc">Description</label>
+        <input type="text" onChange={changeHandler} defaultValue={cskill && cskill.desc} name="desc" id="desc" />
       </div>
-      <div id='submit' className="form-group col-12 text-center">
-          <button type="submit" className="btn btn-success pl-0 pr-0 text-center col-md-4 col-6">{ cskill ? "Update" : "Submit" }</button>
+      <div id='submit' className="input-field col s12 center">
+          <button type="submit" className="btn green">{ cskill ? "Update" : "Submit" }</button>
       </div>
     </form>
   )

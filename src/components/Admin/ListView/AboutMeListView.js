@@ -43,14 +43,14 @@ class AboutMeListView extends Component {
       {
         this.state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               aboutme 
-              ? aboutme.map((abtme, idx) => <li key={abtme.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ abtme.abtme.slice(0, 160) }...</span><button onClick={(e) => deleteAboutMe(e.target.id)} id={abtme.id} className="btn btn-outline-primary col-1 text-white p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>)
+              ? aboutme.map((abtme, idx) => <li key={abtme.id} className="border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col s11 truncate">{ abtme.abtme }</span><button onClick={(e) => deleteAboutMe(e.target.id)} id={abtme.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75rem' }}>&times;</button></li>)
               : <p>Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6">Add</button>
+          <button onClick={this.add} className="btn green">Add</button>
         </>
         : <AboutMeForm abtme={this.state.abtme} changeView={this.changeView} add={addAboutMe}  update={updateAboutMe}  /> 
       }

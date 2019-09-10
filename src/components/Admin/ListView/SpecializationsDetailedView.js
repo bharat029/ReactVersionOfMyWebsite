@@ -52,15 +52,15 @@ class SpecializationsDetailedView extends Component {
       {
         this.state.View === 0
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               scourses 
-              ? scourses.map((course, idx) => <li key={course.id} className="mt-3 ml-3 border rounded row"><span onClick={this.updateC} id={idx} style={{ cursor: "pointer" }} className="col-11">{ course.title }</span><button onClick={(e) => deleteSCourse(e.target.id)} id={course.id} className="btn btn-outline-primary text-white col-1 p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
+              ? scourses.map((course, idx) => <li key={course.id} className="border rounded row"><span onClick={this.updateC} id={idx} style={{ cursor: "pointer" }} className="col s11">{ course.title }</span><button onClick={(e) => deleteSCourse(e.target.id)} id={course.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
               : <p>Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6">Add</button>
-          <button onClick={this.updateS} className="btn btn-success m-5 col-md-2 col-6">Update</button>
+          <button onClick={this.add} className="btn green">Add</button>
+          <button onClick={this.updateS} className="btn green right">Update</button>
         </>
         : this.state.View === 1 
         ? <SCourseFrom course={this.state.course} sid={this.props.match.params.sid} changeView={this.changeView} add={addSCourse}  update={updateSCourse}  /> 

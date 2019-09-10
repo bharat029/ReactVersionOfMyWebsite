@@ -43,14 +43,14 @@ class CoursesListView extends Component {
         {
           this.state.ListView 
           ? <>
-            <ul className="list-unstyled">
+            <ul>
               {
                 courses  
-                ? courses.map((course, idx) => <li key={course.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ course.title }</span><button onClick={(e) => deleteCourse(e.target.id)} id={course.id} className="btn btn-outline-primary text-white col-1 p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
+                ? courses.map((course, idx) => <li key={course.id} className="border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ course.title }</span><button onClick={(e) => deleteCourse(e.target.id)} id={course.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
                 : <p>Loading Data... Please wait!!</p>
               }
             </ul>
-            <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6">Add</button>
+            <button onClick={this.add} className="btn green">Add</button>
           </>
           : <CourseForm course={this.state.course} changeView={this.changeView} add={addCourse}  update={updateCourse}  /> 
         }

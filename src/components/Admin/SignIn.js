@@ -35,23 +35,25 @@ class SignIn extends Component {
             <title>Sign In - Bharathan Mudaliar</title>
           </Helmet>
           <div>
-            <div className="row page-title">
-              <h3 className="col s12">Sign In Admin</h3>
+            <div style={{ width: '100%' }} className="row page-title">
+              <h3 style={{ fontSize: '1.5rem' }}>Sign In Admin</h3>
             </div>
-            <form method="post" onSubmit={this.submited} className="col m6 s12 offset-m3 " action="">
-              { authError && <div id="alert" className="red lighten-3 red-text" role="alert">{ authError }</div> }
-              <div className="input-field">
-                <label className="white-text" htmlFor="email">Email</label>
-                <input type="text" onChange={this.changeHandler} name="email" id="email" />
-              </div>
-              <div className="input-field">
-                <label className="white-text" htmlFor="password">Password</label>
-                <input type="password" onChange={this.changeHandler} name="password" id="password" />
-              </div>
-              <div id='submit' className="input-field col s12 center-align">
-                <button type="submit" className="btn green center-align">Sign In</button>
-              </div>
-            </form>
+            <div className="page-content">
+              <form method="post" onSubmit={this.submited} className="col m6 s12 offset-m3 " action="">
+                { authError && <div id="alert" className="red lighten-3 red-text text-darken-4" role="alert">{ authError }</div> }
+                <div className="input-field">
+                  <label htmlFor="email">Email</label>
+                  <input type="text" onChange={this.changeHandler} name="email" id="email" />
+                </div>
+                <div className="input-field">
+                  <label htmlFor="password">Password</label>
+                  <input type="password" onChange={this.changeHandler} name="password" id="password" />
+                </div>
+                <div id='submit' className="input-field col s12 center-align">
+                  <button type="submit" className="btn green center-align">Sign In</button>
+                </div>
+              </form>
+            </div>
           </div>
         </>
       )

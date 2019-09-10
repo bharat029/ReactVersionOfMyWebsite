@@ -1,40 +1,15 @@
-/* Navbar */
-.navbar-nav {
-  display: flex;
-}
-
-.navbar-nav li {
-  flex: 1;
-}
-
-.navbar-nav a {
-  height: 50px;
-}
-
-.navbar-nav .active,.navbar-nav a:hover  {
-  background: rgb(212, 206, 206);
-  color: black !important;
-}
-
-.navbar-brand {
-  margin: -15px;
-  height: 100%;
-  cursor: pointer;
-}
-
-@media (min-width: 768px) {
-  #nav {
-    height: 50px;
-    overflow: hidden;
-  }
-}
 /* Main Content */
 #main-content {
   font-size: 0.8rem;
   overflow-y: scroll; 
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
   overflow: -moz-scrollbars-none; 
   -ms-overflow-style: none; 
-  height: calc(100vh - 5px);  
+  height: 100vh;  
 }
 
 .page-title {
@@ -45,7 +20,7 @@
 }
 
 .page-content {
-  margin-left: 30px;
+  margin: 0 30px;
 }
 
 ::-webkit-scrollbar {
@@ -66,12 +41,18 @@
 }
 
 .project-row {
-  margin-left: 15px !important;
+  margin: 30px 15px 0 15px !important;
 }
 
 .project-row .col {
+  width: 100%;
   padding: 0;
-  margin-left: -5px !important;
+  margin: 5px 0;
+}
+
+.proj-desc {
+  text-align: center;
+  padding: 5px;
 }
 
 .project h5 {
@@ -175,4 +156,21 @@ dt {
 
 .rounded {
   border-radius: 0.25rem !important;
+}
+
+#alert {
+  border-radius: 500px ;
+  font-size: 1rem;
+  border: red solid 1px;
+  margin: 0 0 25px 0;
+  padding: 20px;
+}
+
+.close:hover {
+  background: gray !important;
+  color: black;
+}
+
+.input-field > label, .input-field > input, .input-field > textarea {
+  color: white;
 }

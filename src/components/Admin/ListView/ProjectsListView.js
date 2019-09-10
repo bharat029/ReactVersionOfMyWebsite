@@ -43,14 +43,14 @@ class ProjectsListView extends Component {
       {
         this.state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               projects ? 
-              projects.map((project, idx) => <li key={project.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ project.title }</span><button onClick={(e) => deleteProject(e.target.id)} id={project.id} className="btn btn-outline-primary text-white col-1 p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
+              projects.map((project, idx) => <li key={project.id} className="border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ project.title }</span><button onClick={(e) => deleteProject(e.target.id)} id={project.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
               : <p>Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6">Add</button>
+          <button onClick={this.add} className="btn green">Add</button>
         </>
         : <ProjectForm project={this.state.project} changeView={this.changeView} add={addProject}  update={updateProject}  /> 
       }

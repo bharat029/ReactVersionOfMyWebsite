@@ -43,14 +43,14 @@ class VEListView extends Component {
       {
         this.state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               ve 
-              ? ve.map((ve, idx) => <li key={ve.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ ve.title }</span><button onClick={(e) => deleteVE(e.target.id)} id={ve.id} className="btn btn-outline-primary col-1 text-white p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>)
+              ? ve.map((ve, idx) => <li key={ve.id} className="border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ ve.title }</span><button onClick={(e) => deleteVE(e.target.id)} id={ve.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>)
               : <p key="loadingedu">Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6" id="aboutmeform">Add</button>
+          <button onClick={this.add} className="btn green">Add</button>
         </>
         : <VEForm ve={this.state.ve} changeView={this.changeView} add={addVE}  update={updateVE}  /> 
       }

@@ -11,7 +11,7 @@ const SideBar = () => {
     <div id="sidebar-container" className="col-md-3" onClick={hide}>
       <div id="sidebar">
         <div id="me" className="row">
-          <img src="https://firebasestorage.googleapis.com/v0/b/bharathanmudaliar.appspot.com/o/imgs%2Fme.png?alt=media&token=8bd13aae-ef67-488a-8506-a82d00c57823" alt="Bharathan Mudaliar" />
+          <img src="https://firebasestorage.googleapis.com/v0/b/bharathanmudaliar.appspot.com/o/imgs%2Fme.jpg?alt=media&token=e9e0f9d8-bd37-4e60-81e3-f49529b6b103" alt="Bharathan Mudaliar" />
           <h1 className="h4">Bharathan Mudaliar</h1>
           <h5>BE (CSE) student</h5>
           <span>An Enthusiastic learner on MOOC Platforms, especially passionate about Deep Learning</span>

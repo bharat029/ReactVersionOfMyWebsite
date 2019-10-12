@@ -173,3 +173,7 @@ dt {
 .input-field > label, .input-field > input, .input-field > textarea {
   color: white;
 }
+
+.cv-icon {
+  padding-right: 15px;
+}

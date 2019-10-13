@@ -11,7 +11,8 @@ import VE from './CV/VE'
 
 const CV = () => {
   useEffect(() => {
-		document.getElementById('main-content').scrollTop = 0
+    document.getElementById('main-content').scrollTop = 0
+    document.querySelector('#mobile-nav').classList.remove('open');
   }, [])
 
   return (

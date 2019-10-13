@@ -14,8 +14,8 @@ var firebaseConfig = {
 }
 
 firebase.initializeApp(firebaseConfig)
-firebase.firestore().enablePersistence()
-  .then(() => console.log('FireStore offilne persistance enabled'))
+// firebase.firestore().enablePersistence()
+//   .then(() => console.log('FireStore offilne persistance enabled'))
 const storage = firebase.storage()
 
 export {

@@ -25,7 +25,6 @@ const Specialization = ({ specialization, scourses }) => {
     }
   }
 
-
   return (
     <>
       <div role="button" onClick={setCourse} id={specialization.id} className="col m6 s11 specialization">

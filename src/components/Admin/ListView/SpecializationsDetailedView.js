@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
@@ -6,69 +6,61 @@ import { addSCourse, updateSCourse, deleteSCourse, updateSpecialization } from '
 import SCourseFrom from '../Forms/SCourseFrom'
 import SpecializationForm from '../Forms/SpecializationForm'
 
-class SpecializationsDetailedView extends Component {
-  constructor(props) {
-    super(props)
+const SpecializationsDetailedView = ({scourses, match, specialization, addSCourse, updateSCourse, deleteSCourse, updateSpecialization}) => {
+  const [state, setState] = useState({View: 0, specialization: null,course: null})
   
-    this.state = {
-       View: 0,
-       specialization: null,
-       course: null
-    }
-  } 
-
-  changeView = () => {
-    this.setState({
+  const changeView = () => {
+    setState({
+      ...state,
       View: 0
     })
   }
 
-  add = e => {
-    this.setState({
+  const add = (e) => {
+    setState({
+      ...state,
       View: 1,
       course: null
     })
   }
 
-  updateS = (e) => {
-    this.setState({
+  const updateS = (e) => {
+    setState({
+      ...state,
       View: 2,
-      specialization: this.props.specialization
+      specialization: specialization
     })
   }
 
-  updateC = (e) => {
-    this.setState({
+  const updateC = (e) => {
+    setState({
+      ...state,
       View: 1,
-      course: this.props.scourses[e.target.id]
+      course: scourses[e.target.id]
     })
   }
 
-  render() {
-    const { scourses, addSCourse, updateSCourse, deleteSCourse, updateSpecialization } = this.props
-
-    return (
-      <>
+  return (
+    <>
       {
-        this.state.View === 0
+        state.View === 0
         ? <>
           <ul>
             {
               scourses 
-              ? scourses.map((course, idx) => <li key={course.id} className="border rounded row"><span onClick={this.updateC} id={idx} style={{ cursor: "pointer" }} className="col s11">{ course.title }</span><button onClick={(e) => deleteSCourse(e.target.id)} id={course.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
+              ? scourses.map((course, idx) => <li key={course.id} className="border rounded row"><span onClick={updateC} id={idx} style={{ cursor: "pointer" }} className="col s11">{ course.title }</span><button onClick={(e) => deleteSCourse(e.target.id)} id={course.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
               : <p>Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn green">Add</button>
-          <button onClick={this.updateS} className="btn green right">Update</button>
+          <button onClick={add} className="btn green">Add</button>
+          <button onClick={updateS} className="btn green right">Update</button>
         </>
-        : this.state.View === 1 
-        ? <SCourseFrom course={this.state.course} sid={this.props.match.params.sid} changeView={this.changeView} add={addSCourse}  update={updateSCourse}  /> 
-        : <SpecializationForm course={this.state.specialization} sid={this.props.match.params.sid} changeView={this.changeView} update={updateSpecialization}  /> 
+        : state.View === 1 
+        ? <SCourseFrom course={state.course} sid={match.params.sid} changeView={changeView} add={addSCourse}  update={updateSCourse}  /> 
+        : <SpecializationForm course={state.specialization} sid={match.params.sid} changeView={changeView} update={updateSpecialization}  /> 
       }
-      </>
-    )
-  }
+    </>
+  )
 }
 
 const mapStateToProp = (state, ownProps) => {

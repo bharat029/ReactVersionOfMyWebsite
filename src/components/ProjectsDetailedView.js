@@ -7,6 +7,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 const ProjectsDetailedView = ({project}) => {
 	useEffect(() => {
 		document.getElementById('main-content').scrollTop = 0
+		document.querySelector('#mobile-nav').classList.remove('open');
 	}, [])
 	
 	return (

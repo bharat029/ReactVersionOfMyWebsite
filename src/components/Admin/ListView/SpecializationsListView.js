@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
@@ -6,57 +6,48 @@ import { addSpecialization, deleteSpecialization, deleteSCourse } from '../../..
 import {Link} from 'react-router-dom';
 import SpecializationForm from '../Forms/SpecializationForm'
 
-class SpecializationsListView extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       ListView: true
-    }
-  } 
+const SpecializationsListView = ({scourses, specializations, deleteSCourse, deleteSpecialization, addSpecialization}) => {
+  const [state, setState] = useState({ListView: true})
 
-  changeView = () => {
-    this.setState({
+  const changeView = () => {
+    setState({
+      ...state,
       ListView: true
     })
   }
 
-  add = e => {
-    this.setState({
+  const add = (e) => {
+    setState({
+      ...state,
       ListView: false
     })
 	}
 	
-	delete = e => {
-		const { scourses, deleteSCourse, deleteSpecialization } = this.props
+	const deleteS = (e) => {
 		let sid = e.target.id
 		scourses.filter(course => course.sid === sid).forEach(course => deleteSCourse(course.id))
 		deleteSpecialization(sid)
 		console.log(sid)
 	}
 
-  render() {
-    const { specializations, addSpecialization } = this.props
-
-		return (
-      <>
-        {
-          this.state.ListView 
-          ? <>
+	return (
+    <>
+      {
+        state.ListView 
+        ? <>
             <ul>
               {
                 specializations  
-                ? specializations.map((spec, idx) => <li key={spec.id} className="border rounded row"><Link to={ '/admin/courses/specializations/' + spec.id } className="white-text link-unstyled col s11">{ spec.title }</Link><button onClick={this.delete} id={spec.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
+                ? specializations.map((spec, idx) => <li key={spec.id} className="border rounded row"><Link to={ '/admin/courses/specializations/' + spec.id } className="white-text link-unstyled col s11">{ spec.title }</Link><button onClick={deleteS} id={spec.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
                 : <p>Loading Data... Please wait!!</p>
               }
             </ul>
-            <button onClick={this.add} className="btn green">Add</button>
+            <button onClick={add} className="btn green">Add</button>
           </>
-          : <SpecializationForm changeView={this.changeView} add={addSpecialization} /> 
+          : <SpecializationForm changeView={changeView} add={addSpecialization} /> 
         }
-      </>
-    )
-  }
+    </>
+  )
 }
 
 const mapStateToProp = (state) => {

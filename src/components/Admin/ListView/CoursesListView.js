@@ -1,62 +1,54 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { addCourse, updateCourse, deleteCourse } from '../../../store/actions/courseActions'
 import CourseForm from '../Forms/CourseForm'
 
-class CoursesListView extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       ListView: true,
-       course: null
-    }
-  } 
+const CoursesListView = ({courses, addCourse, updateCourse, deleteCourse}) => {
+  const [state, setState] = useState({ListView: true, course: null})
 
-  changeView = () => {
-    this.setState({
+  const changeView = () => {
+    setState({
+      ...state,
       ListView: true
     })
   }
 
-  add = e => {
-    this.setState({
+  const add = (e) => {
+    setState({
+      ...state,
       ListView: false,
       course: null
     })
   }
 
-  update = (e) => {
-    this.setState({
+  const update = (e) => {
+    setState({
+      ...state,
       ListView: false,
-      course: this.props.courses[e.target.id]
+      course: courses[e.target.id]
     })
   }
 
-  render() {
-    const { courses, addCourse, updateCourse, deleteCourse } = this.props
-
-    return (
-      <>
+  return (
+    <>
         {
-          this.state.ListView 
+          state.ListView 
           ? <>
             <ul>
               {
                 courses  
-                ? courses.map((course, idx) => <li key={course.id} className="border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ course.title }</span><button onClick={(e) => deleteCourse(e.target.id)} id={course.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
+                ? courses.map((course, idx) => <li key={course.id} className="border rounded row"><span onClick={update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ course.title }</span><button onClick={(e) => deleteCourse(e.target.id)} id={course.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>) 
                 : <p>Loading Data... Please wait!!</p>
               }
             </ul>
-            <button onClick={this.add} className="btn green">Add</button>
+            <button onClick={add} className="btn green">Add</button>
           </>
-          : <CourseForm course={this.state.course} changeView={this.changeView} add={addCourse}  update={updateCourse}  /> 
+          : <CourseForm course={state.course} changeView={changeView} add={addCourse}  update={updateCourse}  /> 
         }
-      </>
-    )
-  }
+    </>
+  )
 }
 
 const mapStateToProp = (state) => {

@@ -1,62 +1,54 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { addCS, updateCS, deleteCS } from '../../../store/actions/cvActions'
 import CSForm from '../Forms/CSForm'
 
-class CSListView extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       ListView: true,
-       cskill: null
-    }
-  } 
+const CSListView = ({cskill, addCS, updateCS, deleteCS}) => {
+  const [state, setState] = useState({ListView: true, cskill: null})
 
-  changeView = () => {
-    this.setState({
+  const changeView = () => {
+    setState({
+      ...state,
       ListView: true
     })
   }
 
-  add = e => {
-    this.setState({
+  const add = (e) => {
+    setState({
+      ...state,
       ListView: false,
       cskill: null
     })
   }
 
-  update = (e) => {
-    this.setState({
+  const update = (e) => {
+    setState({
+      ...state,
       ListView: false,
-      cskill: this.props.cskill[e.target.id]
+      cskill: cskill[e.target.id]
     })
   }
 
-  render() {
-    const {cskill, addCS, updateCS, deleteCS} = this.props
-
-    return (
-      <>
+  return (
+    <>
       {
-        this.state.ListView 
+        state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               cskill 
-              ? cskill.map((cs, idx) => <li key={cs.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ cs.title }</span><button onClick={(e) => deleteCS(e.target.id)} id={cs.id} className="btn btn-outline-primary col-1 text-white p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>)
+              ? cskill.map((cs, idx) => <li key={cs.id} className="border rounded row"><span onClick={update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ cs.title }</span><button onClick={(e) => deleteCS(e.target.id)} id={cs.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>)
               : <p key="loadingedu">Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6" id="aboutmeform">Add</button>
+          <button onClick={add} className="btn green">Add</button>
         </>
-        : <CSForm cskill={this.state.cskill} changeView={this.changeView} add={addCS}  update={updateCS}  /> 
+        : <CSForm cskill={state.cskill} changeView={changeView} add={addCS}  update={updateCS}  /> 
       }
-      </>
-    )
-  }
+    </>
+  )
 }
 
 const mapStateToProp = (state) => {

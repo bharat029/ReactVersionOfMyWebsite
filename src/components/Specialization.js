@@ -12,7 +12,7 @@ const Specialization = ({ specialization, scourses }) => {
   const setCourse = e => {
     if(state.courses){
       if(state.display){
-        courseList.current.firstChild.classList = "m-2 border course-list hide rounded"
+        courseList.current.firstChild.classList = "course-list border hideit rounded"
         setTimeout(() => {
           setState({ ...state, display: false })
         }, 500)
@@ -25,18 +25,17 @@ const Specialization = ({ specialization, scourses }) => {
     }
   }
 
-
   return (
     <>
-      <div role="button" onClick={setCourse} id={specialization.id} className="col-md-6 col-11 specialization">
-        <h5 className="title p-0 m-0">{specialization.title}</h5>
-        <span className="offeredBy float-left p-0 m-0">{specialization.offeredBy}</span>
-        <span className="plateform float-right p-0 m-0">{specialization.plateform}</span>
+      <div role="button" onClick={setCourse} id={specialization.id} className="col m6 s11 specialization">
+        <h5 className="title">{specialization.title}</h5>
+        <span className="offeredBy left">{specialization.offeredBy}</span>
+        <span className="plateform right">{specialization.plateform}</span>
       </div>
       { 
         state.display 
-        ? <div ref={courseList} className="col-md-6 col-11">
-            <div className="m-2 course-list border show rounded">
+        ? <div ref={courseList} className="col s11 m6">
+            <div className="course-list border show rounded" style={{ margin: '5%' }}>
               <CoursesListView courses={state.courses} offeredBy={specialization.offeredBy} plateform={specialization.plateform} certi={specialization.certi} />
             </div>
           </div>

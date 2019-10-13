@@ -1,36 +1,34 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom';
 
-const Navbar = () => {
-	const collapse = (e) => {
-		document.querySelector('.collapse').classList = "collapse navbar-collapse justify-content-end"
-		document.querySelector('#sidebar-container').classList.remove('menu-displayed')
-	}
-	return (
-		<nav id="nav" className="navbar navbar-expand-md navbar-dark row sticky-top bg-dark border-bottom">
-			<div onClick={() => document.getElementById('sidebar-container').classList.toggle('menu-displayed')} className="navbar-brand bg-dark border-0 text-center text-white col-md-3 col-9 m-0 p-0">
-				<span className="float-left">Bharathan Mudaliar</span>
-			</div>
-			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span className="navbar-toggler-icon"></span>
-			</button>
-			<div className="collapse navbar-collapse justify-content-end" onClick={collapse} id="navbarNav">
-				<ul className="navbar-nav col-md-9 mr-3">
-					<li className="nav-item">
-						<NavLink className="nav-link text-white text-center" exact to="/">About me </NavLink>
-					</li>
-					<li className="nav-item">
-						<NavLink className="nav-link text-white text-center" to="/projects">Projects</NavLink>
-					</li>
-					<li className="nav-item">
-						<NavLink className="nav-link text-white text-center" to="/courses">Courses</NavLink>
-					</li>
-					<li className="nav-item">
-						<NavLink className="nav-link text-white text-center" to="/cv">CV</NavLink>
-					</li>
-				</ul>
-			</div>
-		</nav>
+const Navbar = () => {  
+  const toggleMenu = (e) => {
+    document.querySelector('#mobile-nav').classList.toggle('open');
+  } 
+
+  return (
+    <>
+      <nav className="black">
+        <div className="nav-wrapper container">
+          <div className="row">
+            <h1 role="button" onClick={e => document.querySelector('#sidebar-container').classList.toggle('menu-displayed')} className="center-align" id="title">Bharathan Mudaliar</h1>
+            <button id='menu' onClick={toggleMenu} className="col s10 m6 hide-on-large-only"><i className="material-icons">menu</i></button>
+            <ul id="menu-content" className="col m6 right hide-on-med-and-down">
+              <li><NavLink exact to="/" className="center-align">About Me</NavLink></li>
+              <li><NavLink to="/projects" className="center-align">Projects</NavLink></li>
+              <li><NavLink to="/courses" className="center-align">Courses</NavLink></li>
+              <li><NavLink to="/cv" className="center-align">CV</NavLink></li>
+            </ul>
+          </div>
+        </div>
+        <ul id="mobile-nav" className="hide-on-large-only close">
+          <li><NavLink exact to="/">About Me</NavLink></li>
+          <li><NavLink to="/projects">Projects</NavLink></li>
+          <li><NavLink to="/courses">Courses</NavLink></li>
+          <li><NavLink to="/cv">CV</NavLink></li>
+        </ul>
+      </nav>
+    </>
 	)
 }
 

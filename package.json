@@ -1,6 +1,6 @@
 {
   "name": "my-website",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "core-js": "^3.2.1",
@@ -9,18 +9,20 @@
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-redux": "^5.1.2",
-    "react-redux-firebase": "^2.4.1",
+    "react-redux-firebase": "^2.5.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.2.0",
     "redux": "^4.0.4",
     "redux-firestore": "^0.8.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "request": "^2.88.0"
   },
   "scripts": {
     "predeploy": "react-scripts build",
     "deploy": "firebase deploy",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "publish": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

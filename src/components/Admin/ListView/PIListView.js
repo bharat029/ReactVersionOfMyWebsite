@@ -1,62 +1,54 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { addPI, updatePI, deletePI } from '../../../store/actions/cvActions'
 import PIForm from '../Forms/PIForm'
 
-class PIListView extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       ListView: true,
-       pinterest: null
-    }
-  } 
+const PIListView = ({pinterest, addPI, updatePI, deletePI}) => {
+  const [state, setState] = useState({ListView: true, pinterest: null})
 
-  changeView = () => {
-    this.setState({
+  const changeView = () => {
+    setState({
+      ...state,
       ListView: true
     })
   }
 
-  add = e => {
-    this.setState({
+  const add = (e) => {
+    setState({
+      ...state,
       ListView: false,
       pinterest: null
     })
   }
 
-  update = (e) => {
-    this.setState({
+  const update = (e) => {
+    setState({
+      ...state,
       ListView: false,
-      pinterest: this.props.pinterest[e.target.id]
+      pinterest: pinterest[e.target.id]
     })
   }
 
-  render() {
-    const {pinterest, addPI, updatePI, deletePI} = this.props
-
-    return (
-      <>
+  return (
+    <>
       {
-        this.state.ListView 
+        state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               pinterest 
-              ? pinterest.map((pint, idx) => <li key={pint.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ pint.pint }</span><button onClick={(e) => deletePI(e.target.id)} id={pint.id} className="btn btn-outline-primary col-1 text-white p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>)
+              ? pinterest.map((pint, idx) => <li key={pint.id} className="border rounded row"><span onClick={update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ pint.pint }</span><button onClick={(e) => deletePI(e.target.id)} id={pint.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>)
               : <p key="loadingedu">Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6" id="aboutmeform">Add</button>
+          <button onClick={add} className="btn green">Add</button>
         </>
-        : <PIForm pint={this.state.pinterest} changeView={this.changeView} add={addPI}  update={updatePI}  /> 
+        : <PIForm pint={state.pinterest} changeView={changeView} add={addPI}  update={updatePI}  /> 
       }
-      </>
-    )
-  }
+    </>
+  )
 }
 
 const mapStateToProp = (state) => {

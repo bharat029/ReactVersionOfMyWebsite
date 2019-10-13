@@ -1,62 +1,54 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { addInternship, updateInternship, deleteInternship } from '../../../store/actions/cvActions'
 import InternshipForm from '../Forms/InternshipForm'
 
-class CSListView extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       ListView: true,
-       internship: null
-    }
-  } 
+const CSListView = ({internship, addInternship, updateInternship, deleteInternship}) => {
+  const [state, setState] = useState({ListView: true, internship: null})
 
-  changeView = () => {
-    this.setState({
+  const changeView = () => {
+    setState({
+      ...state,
       ListView: true
     })
   }
 
-  add = e => {
-    this.setState({
+  const add = (e) => {
+    setState({
+      ...state,
       ListView: false,
       internship: null
     })
   }
 
-  update = (e) => {
-    this.setState({
+  const update = (e) => {
+    setState({
+      ...state,
       ListView: false,
-      internship: this.props.internship[e.target.id]
+      internship: internship[e.target.id]
     })
   }
 
-  render() {
-    const {internship, addInternship, updateInternship, deleteInternship} = this.props
-
-    return (
-      <>
+  return (
+    <>
       {
-        this.state.ListView 
+        state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               internship 
-              ? internship.map((cs, idx) => <li key={cs.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ cs.title }</span><button onClick={(e) => deleteInternship(e.target.id)} id={cs.id} className="btn btn-outline-primary col-1 text-white p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>)
+              ? internship.map((cs, idx) => <li key={cs.id} className="border rounded row"><span onClick={update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ cs.title }</span><button onClick={(e) => deleteInternship(e.target.id)} id={cs.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>)
               : <p key="loadingedu">Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6" id="aboutmeform">Add</button>
+          <button onClick={add} className="btn green">Add</button>
         </>
-        : <InternshipForm internship={this.state.internship} changeView={this.changeView} add={addInternship}  update={updateInternship}  /> 
+        : <InternshipForm internship={state.internship} changeView={changeView} add={addInternship}  update={updateInternship}  /> 
       }
-      </>
-    )
-  }
+    </>
+  )
 }
 
 const mapStateToProp = (state) => {

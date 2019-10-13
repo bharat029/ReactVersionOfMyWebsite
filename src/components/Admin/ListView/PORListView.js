@@ -1,62 +1,54 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { addPOR, updatePOR, deletePOR } from '../../../store/actions/cvActions'
 import PORForm from '../Forms/PORForm'
 
-class PORListView extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       ListView: true,
-       por: null
-    }
-  } 
+const PORListView = ({por, addPOR, updatePOR, deletePOR}) => {
+  const [state, setState] = useState({ListView: true, por: null})
 
-  changeView = () => {
-    this.setState({
+  const changeView = () => {
+    setState({
+      ...state,
       ListView: true
     })
   }
 
-  add = e => {
-    this.setState({
+  const add = (e) => {
+    setState({
+      ...state,
       ListView: false,
       por: null
     })
   }
 
-  update = (e) => {
-    this.setState({
+  const update = (e) => {
+    setState({
+      ...state,
       ListView: false,
-      por: this.props.por[e.target.id]
+      por: por[e.target.id]
     })
   }
 
-  render() {
-    const {por, addPOR, updatePOR, deletePOR} = this.props
-
-    return (
-      <>
+  return (
+    <>
       {
-        this.state.ListView 
+        state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               por 
-              ? por.map((p, idx) => <li key={p.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ p.title }</span><button onClick={(e) => deletePOR(e.target.id)} id={p.id} className="btn btn-outline-primary col-1 text-white p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>)
+              ? por.map((p, idx) => <li key={p.id} className="border rounded row"><span onClick={update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ p.title }</span><button onClick={(e) => deletePOR(e.target.id)} id={p.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>)
               : <p key="loadingedu">Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6" id="aboutmeform">Add</button>
+          <button onClick={add} className="btn green">Add</button>
         </>
-        : <PORForm por={this.state.por} changeView={this.changeView} add={addPOR}  update={updatePOR}  /> 
+        : <PORForm por={state.por} changeView={changeView} add={addPOR}  update={updatePOR}  /> 
       }
-      </>
-    )
-  }
+    </>
+  )
 }
 
 const mapStateToProp = (state) => {

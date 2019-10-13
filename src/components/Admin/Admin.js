@@ -29,17 +29,17 @@ const Admin = ({ auth, signOut }) => {
           <title>Admin - Bharathan Mudaliar</title> 
         </Helmet>
         <div className="page">
-          <div className="row page-title">
-            <h2 className="col-10">Welcome Bharat</h2>
-            <div className="ol-2"><button className="btn btn-primary" onClick={() => signOut()}>Log Out</button></div>
+          <div className="row page-title valign-wrapper">
+            <h3 className="col s10">Welcome Bharat</h3>
+            <div className="col s2 center"><button className="btn green center" onClick={() => signOut()}>Log Out</button></div>
           </div>
-          <div id="page-content">
+          <div className="page-content">
             <Router>
-              <div className="row ml-1">
-                <div className="col-3"><NavLink exact to="/admin/" className="admin-navi d-block">About Me</NavLink></div>
-                <div className="col-3"><NavLink to="/admin/projects" className="admin-navi d-block">Projects</NavLink></div> 
-                <div className="col-3"><NavLink to="/admin/courses" className="admin-navi d-block">Courses</NavLink></div> 
-                <div className="col-3"><NavLink to="/admin/cv" className="admin-navi d-block">CV</NavLink></div> 
+              <div className="row">
+                <div className="col s3"><NavLink style={{ display: 'block' }} exact to="/admin/" className="admin-navi">About Me</NavLink></div>
+                <div className="col s3"><NavLink style={{ display: 'block' }} to="/admin/projects" className="admin-navi">Projects</NavLink></div> 
+                <div className="col s3"><NavLink style={{ display: 'block' }} to="/admin/courses" className="admin-navi">Courses</NavLink></div> 
+                <div className="col s3"><NavLink style={{ display: 'block' }} to="/admin/cv" className="admin-navi">CV</NavLink></div> 
               </div>
               <Route exact path="/admin/" component={AboutMeListView} />
               <Route path="/admin/projects" component={ProjectListView} />

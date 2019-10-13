@@ -24,17 +24,17 @@ const PORForm = ({ por, changeView, add, update }) => {
   }
 
   return (
-    <form method="post" onSubmit={submitHnadler} className="col-md-6 m-5" action="">
-      <div className="form-group">
-        <label htmlFor="title">Possitional Of ResponsibleTitle:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="Possitional Of ResponsibleTitle" defaultValue={por && por.title} name="title" id="title" />
+    <form method="post" onSubmit={submitHnadler} className="col m6 s12" action="">
+      <div className="input-field">
+        <label className={por? 'active' : ''} htmlFor="title">Title</label>
+        <input type="text" onChange={changeHandler} defaultValue={por && por.title} name="title" id="title" />
       </div>
-      <div className="form-group">
-        <label htmlFor="desc">Possitional Of ResponsibleDescription:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="Possitional Of ResponsibleDescription" defaultValue={por && por.desc} name="desc" id="desc" />
+      <div className="input-field">
+        <label className={por? 'active' : ''} htmlFor="desc">Description</label>
+        <textarea className="materialize-textarea" onChange={changeHandler} defaultValue={por && por.desc} name="desc" id="desc" />
       </div>
-      <div id='submit' className="form-group col-12 text-center">
-          <button type="submit" className="btn btn-success pl-0 pr-0 text-center col-md-4 col-6">{ por ? "Update" : "Submit" }</button>
+      <div id='submit' className="input-field col s12 center">
+          <button type="submit" className="btn green">{ por ? "Update" : "Submit" }</button>
       </div>
     </form>
   )

@@ -5,7 +5,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 
 const Education = ({ education }) => {
   return (
-    <ul>
+    <ul className="browser-default">
       {
         education 
         ? education.map(edu => <li key={edu.id}>{edu.edu}</li>)

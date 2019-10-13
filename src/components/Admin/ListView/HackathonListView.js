@@ -1,62 +1,54 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { addHackathon, updateHackathon, deleteHackathon } from '../../../store/actions/cvActions'
 import HackathonForm from '../Forms/HackathonForm'
 
-class HackathonListView extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       ListView: true,
-       hackathon: null
-    }
-  } 
+const HackathonListView = ({hackathon, addHackathon, updateHackathon, deleteHackathon}) => {
+  const [state, setState] = useState({ListView: true, hackathon: null})
 
-  changeView = () => {
-    this.setState({
+  const changeView = () => {
+    setState({
+      ...state,
       ListView: true
     })
   }
 
-  add = e => {
-    this.setState({
+  const add = (e) => {
+    setState({
+      ...state,
       ListView: false,
       hackathon: null
     })
   }
 
-  update = (e) => {
-    this.setState({
+  const update = (e) => {
+    setState({
+      ...state,
       ListView: false,
-      hackathon: this.props.hackathon[e.target.id]
+      hackathon: hackathon[e.target.id]
     })
   }
 
-  render() {
-    const {hackathon, addHackathon, updateHackathon, deleteHackathon} = this.props
-
-    return (
-      <>
+  return (
+    <>
       {
-        this.state.ListView 
+        state.ListView 
         ? <>
-          <ul className="list-unstyled">
+          <ul>
             {
               hackathon 
-              ? hackathon.map((hk, idx) => <li key={hk.id} className="mt-3 ml-3 border rounded row"><span onClick={this.update} id={idx} style={{ cursor: "pointer" }} className="col-11">{ hk.title }</span><button onClick={(e) => deleteHackathon(e.target.id)} id={hk.id} className="btn btn-outline-primary col-1 text-white p-0 m-0 border-0" style={{ fontSize: '1.75em' }}>&times;</button></li>)
+              ? hackathon.map((hk, idx) => <li key={hk.id} className="border rounded row"><span onClick={update} id={idx} style={{ cursor: "pointer" }} className="col s11">{ hk.title }</span><button onClick={(e) => deleteHackathon(e.target.id)} id={hk.id} className="btn close col s1 white-text transparent" style={{ fontSize: '1.75em' }}>&times;</button></li>)
               : <p key="loadingedu">Loading Data... Please wait!!</p>
             }
           </ul>
-          <button onClick={this.add} className="btn btn-success m-5 col-md-2 col-6" id="aboutmeform">Add</button>
+          <button onClick={add} className="btn green">Add</button>
         </>
-        : <HackathonForm hackathon={this.state.hackathon} changeView={this.changeView} add={addHackathon}  update={updateHackathon}  /> 
+        : <HackathonForm hackathon={state.hackathon} changeView={changeView} add={addHackathon}  update={updateHackathon}  /> 
       }
-      </>
-    )
-  }
+    </>
+  )
 }
 
 const mapStateToProp = (state) => {

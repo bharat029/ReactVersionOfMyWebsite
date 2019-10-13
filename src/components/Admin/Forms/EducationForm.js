@@ -24,13 +24,13 @@ const AboutMeForm = ({ edu, changeView, add, update }) => {
   }
 
   return (
-    <form method="post" onSubmit={submitHnadler} className="col-md-6 m-5" action="">
-      <div className="form-group">
-        <label htmlFor="edu">Education:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="One Point in Education" defaultValue={edu && edu.edu} name="edu" id="edu" />
+    <form method="post" onSubmit={submitHnadler} className="col m6 s12" action="">
+      <div className="input-field">
+        <label className={edu? 'active' : ''} htmlFor="edu">Education</label>
+        <textarea className="materialize-textarea" onChange={changeHandler} defaultValue={edu && edu.edu} name="edu" id="edu" />
       </div>
-      <div id='submit' className="form-group col-12 text-center">
-          <button type="submit" className="btn btn-success pl-0 pr-0 text-center col-md-4 col-6">{ edu ? "Update" : "Submit" }</button>
+      <div id='submit' className="input-field col s12 center">
+          <button type="submit" className="btn green">{ edu ? "Update" : "Submit" }</button>
       </div>
     </form>
   )

@@ -24,13 +24,13 @@ const AboutMeForm = ({ pint, changeView, add, update }) => {
   }
 
   return (
-    <form method="post" onSubmit={submitHnadler} className="col-md-6 m-5" action="">
-      <div className="form-group">
-        <label htmlFor="pint">Professional Interest:</label>
-        <input type="text" onChange={changeHandler} className="form-control" placeholder="One Point in Professional Interest" defaultValue={pint && pint.pint} name="pint" id="pint" />
+    <form method="post" onSubmit={submitHnadler} className="col m6 s12" action="">
+      <div className="input-field">
+        <label className={pint? 'active' : ''} htmlFor="pint">Professional Interest</label>
+        <input type="text" onChange={changeHandler} defaultValue={pint && pint.pint} name="pint" id="pint" />
       </div>
-      <div id='submit' className="form-group col-12 text-center">
-          <button type="submit" className="btn btn-success pl-0 pr-0 text-center col-md-4 col-6">{ pint ? "Update" : "Submit" }</button>
+      <div id='submit' className="input-field col s12 center">
+          <button type="submit" className="btn green">{ pint ? "Update" : "Submit" }</button>
       </div>
     </form>
   )

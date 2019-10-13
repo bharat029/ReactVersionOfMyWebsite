@@ -7,7 +7,8 @@ import Specialization from './Specialization'
 
 const Course = ({ specializations, courses, scourses }) => {
   useEffect(() => {
-		document.getElementById('main-content').scrollTop = 0
+    document.getElementById('main-content').scrollTop = 0
+    document.querySelector('#mobile-nav').classList.remove('open');
   }, [])
 
  return (
@@ -19,11 +20,11 @@ const Course = ({ specializations, courses, scourses }) => {
         <h3>Specializations</h3>
       </div>
       <div className="page-content">
-        <div className="row mt-5">
-          <ul className="list-unstyled container-fluid">
+        <div className="row">
+          <ul>
             {
               specializations 
-              ? specializations.map(specialization => <li key={specialization.id} className="row mb-3 ml-1"><Specialization specialization={specialization} /></li>)
+              ? specializations.map(specialization => <li key={specialization.id} className="row"><Specialization specialization={specialization} /></li>)
               : <p>Loading Data... Please wait!!</p>
             }
           </ul>
@@ -32,12 +33,12 @@ const Course = ({ specializations, courses, scourses }) => {
       <div className="row page-title">
         <h3>Courses</h3>
       </div>
-      <div id="page-content">
-        <div className="row mt-5">
-          <ul className="list-unstyled container-fluid">
+      <div className="page-content">
+        <div className="row">
+          <ul>
             {
               courses 
-              ? courses.map(course => <li key={course.id} className="row ml-1"><a href={course.certi} rel="noopener noreferrer" target="_blank" className="text-white link-unstyled d-block mb-3 col-11 course"><h5 className="title p-0 m-0">{course.title}</h5><span className="offeredBy float-left p-0 m-0">{course.offeredBy}</span><span className="plateform float-right p-0 m-0">{course.plateform}</span></a></li>)
+              ? courses.map(course => <li key={course.id} className="row"><a href={course.certi} rel="noopener noreferrer" target="_blank" className="white-text link-unstyled col s11 course"><h5 className="title">{course.title}</h5><span className="offeredBy left">{course.offeredBy}</span><span className="plateform right">{course.plateform}</span></a></li>)
               : <p>Loading Data... Please wait!!</p>
             }
           </ul>

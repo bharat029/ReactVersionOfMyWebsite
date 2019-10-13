@@ -17,7 +17,7 @@ const ProjectsDetailedView = ({project}) => {
 		</Helmet>
 		{
 			project 
-			? <div id="project-details" className="m-0 p-0">
+			? <div id="project-details">
 					<div className="row page-title">
 						<h3>{project.title}</h3>
 					</div>
@@ -25,7 +25,7 @@ const ProjectsDetailedView = ({project}) => {
 						{project['desc-1'] && <p>{project['desc-1']}</p>}
 						{project['desc-2'] && <p>{project['desc-2']}</p>}
 						{project['desc-3'] && <p>{project['desc-3']}</p>}
-						<h4 className="mt-5">Highlights:</h4>
+						<h4>Highlights:</h4>
 						<ul>
 							{project['high-1'] && <li>{project['high-1']}</li>}
 							{project['high-2'] && <li>{project['high-2']}</li>}

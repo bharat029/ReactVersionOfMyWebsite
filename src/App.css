@@ -1,4 +1,12 @@
 /* Nav */
+.nav-wrapper .row {
+  display: flex;
+  height: 100%;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -9,10 +17,12 @@ nav {
 }
 
 #title {
+  flex: 11;
+  height: 100%;
   font-size: 2rem;
   cursor: pointer;
-  display: inline;
 }
+
 #menu-content {
   display: flex;
   overflow: hidden;
@@ -26,9 +36,8 @@ nav {
 }
 
 #menu-btn {
-  float: right;
-  height: 48px;
-  width: 50px;
+  flex: 1;
+  height: 100%;
   background: black;
   color: white;
   border: none;
@@ -253,13 +262,22 @@ nav {
   margin: 0 30px;
 }
 
-::-webkit-scrollbar {
-  display: none;
+.page-title h3 {
+  font-size: 1.75rem;
+  margin: 0;
 }
 
-/* Projects */
-.card {
-  height: 25vh;
+#project-details h4 {
+  font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 601px) {
+  .page-title h3 {
+    font-size: 2.75rem;
+  }
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 /* Specialization */

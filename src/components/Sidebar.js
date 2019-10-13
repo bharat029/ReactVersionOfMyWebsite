@@ -22,7 +22,7 @@ const SideBar = () => {
               <a href="mailto:vbharathan.2013@gmail.com" rel="noopener noreferrer" target='_blank' className="fa fa-envelope-square"><span>E-mail</span></a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/v-bharathan-mudaliar-51289b157/" rel="noopener noreferrer" target='_blank' className="fa fa-linkedin"><span>Linkedin</span></a>
+              <a href="https://www.linkedin.com/in/bharathanmudaliar/" rel="noopener noreferrer" target='_blank' className="fa fa-linkedin"><span>Linkedin</span></a>
             </li>
             <li>
               <a href="https://www.facebook.com/bharathan.vs" rel="noopener noreferrer" target='_blank' className="fa fa-facebook"><span>Facebook</span></a>

@@ -69,7 +69,7 @@ const CV = () => {
         <Hobbies />
       </div>
       <br /><br /><br /><br /><br /><br /><br /><br />
-      <div id='download-btn-page-content'>
+      <div className='page-content'>
         <a href="https://firebasestorage.googleapis.com/v0/b/bharathanmudaliar.appspot.com/o/files%2FResume.pdf?alt=media&token=08edaf92-52f0-4017-8939-0302b6b582f4" rel="noopener noreferrer" className='btn blue' target='_blank'>
           <i className='fa fa-download'></i> Download CV
         </a>

@@ -38,7 +38,7 @@ const Course = ({ specializations, courses, scourses }) => {
           <ul>
             {
               courses 
-              ? courses.map(course => <li key={course.id} className="row"><a href={course.certi} rel="noopener noreferrer" target="_blank" className="white-text link-unstyled col s11 course"><h5 className="title">{course.title}</h5><span className="offeredBy left">{course.offeredBy}</span><span className="plateform right">{course.plateform}</span></a></li>)
+              ? courses.map(course => <li key={course.id} className="row"><a href={course.certi} rel="noopener noreferrer" target="_blank" className="white-text link-unstyled col s11 course"><h5 className="title truncate">{course.title}</h5><span className="offeredBy left">{course.offeredBy}</span><span className="plateform right">{course.plateform}</span></a></li>)
               : <p>Loading Data... Please wait!!</p>
             }
           </ul>

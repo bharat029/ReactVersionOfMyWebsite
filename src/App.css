@@ -292,6 +292,7 @@ nav {
 }
 
 .course-list.show {
+  border-radius: 0 !important;
   transform-origin: 25px 25px;
   animation: showup 500ms ease-in-out forwards;
 }

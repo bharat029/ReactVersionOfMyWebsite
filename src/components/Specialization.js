@@ -35,7 +35,7 @@ const Specialization = ({ specialization, scourses }) => {
       { 
         state.display 
         ? <div ref={courseList} className="col s11 m6">
-            <div className="course-list border show rounded" style={{ margin: '5%' }}>
+            <div className="course-list border show z-depth-3" style={{ margin: '5%', padding: '15px' }}>
               <CoursesListView courses={state.courses} offeredBy={specialization.offeredBy} plateform={specialization.plateform} certi={specialization.certi} />
             </div>
           </div>

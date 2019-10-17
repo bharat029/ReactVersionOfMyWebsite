@@ -70,7 +70,7 @@ const CV = () => {
       </div>
       <br /><br /><br /><br /><br /><br /><br /><br />
       <div className='page-content'>
-        <a href="https://firebasestorage.googleapis.com/v0/b/bharathanmudaliar.appspot.com/o/files%2FResume.pdf?alt=media&token=08edaf92-52f0-4017-8939-0302b6b582f4" rel="noopener noreferrer" className='btn blue' target='_blank'>
+        <a href="https://firebasestorage.googleapis.com/v0/b/bharathanmudaliar.appspot.com/o/files%2FBharathan-Resume.pdf?alt=media&token=065531a7-ac68-45c6-8804-6e9abb69bcc0" rel="noopener noreferrer" className='btn blue' target='_blank'>
           <i className='fa fa-download'></i> Download CV
         </a>
       </div>

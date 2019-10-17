@@ -26,7 +26,7 @@ const ProjectsDetailedView = ({project}) => {
 						{project['desc-2'] && <p>{project['desc-2']}</p>}
 						{project['desc-3'] && <p>{project['desc-3']}</p>}
 						<h4>Highlights:</h4>
-						<ul>
+						<ul className="browser-default">
 							{project['high-1'] && <li>{project['high-1']}</li>}
 							{project['high-2'] && <li>{project['high-2']}</li>}
 							{project['high-3'] && <li>{project['high-3']}</li>}

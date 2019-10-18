@@ -1,4 +1,8 @@
 /* Nav */
+.nav-wrapper {
+  padding: 0 1vw;
+}
+
 .nav-wrapper .row {
   display: flex;
   height: 100%;
@@ -25,13 +29,14 @@ nav {
 #menu-content {
   display: flex;
   overflow: hidden;
-  height: 48px;
+  height: 100%;
+  align-items: center;
   margin: 0;
   padding: 0;
 } 
 
 #menu-content > li{
-  margin-top: -7px;
+  flex: 1;
 }
 
 #menu-btn {
@@ -73,6 +78,12 @@ nav {
   top: 50px;
 }
 
+@media only screen and (min-width: 601px) {
+  .nav-wrapper {
+    padding: 0 5vw;
+  }
+}
+
 /* Sidebar */
 #sidebar-container {
   z-index: 2;
@@ -107,6 +118,7 @@ nav {
   max-height: 175px;
   margin: 5vh auto;
   border-radius: 50%;
+  border: 2px solid lightgoldenrodyellow;
 }
 
 #me > h1 {

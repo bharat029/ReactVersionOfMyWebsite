@@ -102,6 +102,10 @@
   color: #dd4b39 !important;
 }
 
+#sidebar #contact-info {
+  margin-top: 20%;
+}
+
 #sidebar #contact-info a {
   line-height: 1em;
 }

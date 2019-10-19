@@ -1,0 +1,20 @@
+dt {
+  font-weight: bold;
+}
+  
+#download-btn-container {
+  position: relative;
+}
+
+#download-btn-container a {
+  font-size: 1.5rem;
+  position: absolute;
+  margin-top: 100px; 
+  text-decoration: none;
+  bottom: 50px;
+  right: 10px;
+}
+  
+.cv-icon {
+  padding-right: 15px;
+}

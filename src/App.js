@@ -1,8 +1,9 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useEffect } from 'react'
 import './App.css'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import SideBar from './components/Sidebar'
+import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
+import M from 'materialize-css'
 
 const Aboutme = lazy(() => import('./components/AboutMe'))
 const ProjectsListView = lazy(() => import('./components/ProjectsListView'))
@@ -13,11 +14,20 @@ const Admin = lazy(() => import('./components/Admin/Admin'))
 const SignIn = lazy(() => import('./components/Admin/SignIn'))
 
 const App = () => { 
+  useEffect(() => {
+    M.AutoInit()
+  }, [])
+
   return (
     <div className="row" style={{ padding: '0', margin: '0' }}>
       <Router>
-        <SideBar />
         <Navbar />
+        <div id="sidebar" className="sidenav black">
+          <Sidebar />
+        </div>
+        <div id="side-large" className="col m3 hide-on-small-and-down black">
+          <Sidebar />
+        </div>
         <div className="col m9 s12 offset-m3" id="main-content">
           <Suspense fallback="<div>Loadiing...</div>">
             <Route exact path="/" component={Aboutme} />

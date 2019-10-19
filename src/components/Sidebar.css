@@ -1,0 +1,113 @@
+#side-large {
+  margin-top: 65px;
+  position: fixed;
+  height: calc(100vh - 65px);
+  overflow: hidden;
+  padding: 0;
+}
+
+#sidebar {
+  padding: 75px 0 0 0;
+}
+
+#me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+#me img {
+  min-height: 150px;
+  min-width: 150px;
+  height: 15vmax;
+  width: 15vmax;
+  max-height: 200px;
+  max-width: 200px;
+  border: 2px solid lightblue;
+  border-radius: 50%;
+  margin: 0 0 15px 0;
+}
+
+#me h2 {
+  font-size: 2rem;
+  margin: 0 0 15px 0;
+}
+
+#me h5 {
+  font-size: 1.5rem;
+  margin: 0 0 15px 0;
+}
+
+#me span {
+  margin: 0;
+}
+
+#contact-info {
+  margin-top: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#contact-info li {
+  flex-basis: 30px;
+}
+
+#contact-info a {
+  height: 30px;
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  transition: 500ms ease-out;
+}
+
+#contact-info a:hover, #contact-info a:focus {
+  transform: rotate(360deg);
+  background: white;
+}
+
+.fa span {
+  font-size: 0;
+}
+
+.fa-github {
+  background: #211f1f ;
+}
+
+.fa-github:hover, 
+.fa-github:focus {
+  color: #211f1f !important;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+}
+
+.fa-linkedin:hover, 
+.fa-linkedin:focus {
+  color: #007bb5 !important;
+}
+
+.fa-envelope-square {
+  background: #dd4b39;
+}
+
+.fa-envelope-square:hover,
+.fa-envelope-square:focus {
+  color: #dd4b39 !important;
+}
+
+#sidebar #contact-info a {
+  line-height: 1em;
+}
+
+@media screen and (orientation: landscape) {
+  #sidebar {
+    padding: 0 !important;
+  }
+}

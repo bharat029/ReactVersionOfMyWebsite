@@ -1,0 +1,88 @@
+.nav-wrapper {
+  padding: 0 1vw;
+}
+
+.nav-wrapper .row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  height: 50px;
+  padding: 0;
+}
+
+.sidenav-trigger  {
+  float: none !important;
+
+}
+
+nav h1 {
+  flex: 11;
+  height: 50px;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 2rem;
+}
+
+#menu-content {
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+} 
+
+#menu-content > li{
+  flex: 1;
+}
+
+#menu-btn {
+  flex: 1;
+  height: 100%;
+  background: black;
+  color: white;
+  border: none;
+  text-align: center;
+}
+
+#menu-content a:hover, #menu-content a.active,
+#mobile-nav a:hover, #mobile-nav a.active {
+  background: lightgrey;
+  color: black;
+}
+
+#mobile-nav:hover {
+  background: inherit !important;
+}
+
+#mobile-nav {
+  position: absolute;
+  top: -300px;
+  padding: 15px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  transition: top 250ms linear;
+}
+
+#mobile-nav a {
+  display: block;
+  text-align: center;
+}
+
+#mobile-nav.open {
+  top: 50px;
+}
+
+@media only screen and (min-width: 601px) {
+  .nav-wrapper {
+    padding: 0 5vw;
+  }
+}

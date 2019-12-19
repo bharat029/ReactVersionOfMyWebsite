@@ -15,8 +15,8 @@ import 'materialize-css/dist/css/materialize.min.css'
 const store = createStore(rootReducer, 
   compose(
       applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-      reduxFirestore(fbconfig),
-      reactReduxFirebase(firebase, { attachAuthIsReady: true })
+      reduxFirestore(fbconfig, { allowMultipleListeners: true }),
+      reactReduxFirebase(firebase, { attachAuthIsReady: true})
     )
   )
 

@@ -3,7 +3,7 @@ import 'firebase/firestore'
 import 'firebase/auth'
 import 'firebase/storage'
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDTOBnAnlqLWKLxJSRGtNmBkjt3OsuBZKs",
   authDomain: "bharathanmudaliar.firebaseapp.com",
   databaseURL: "https://bharathanmudaliar.firebaseio.com",

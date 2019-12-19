@@ -8,7 +8,7 @@ const Sidebar = () => {
         <img className="center" src="https://firebasestorage.googleapis.com/v0/b/bharathanmudaliar.appspot.com/o/imgs%2Fme.jpg?alt=media&token=e9e0f9d8-bd37-4e60-81e3-f49529b6b103" alt="Bharathan Mudaliar" />
         <h2 className="center">Bharathan Mudaliar</h2>
         <h5 className="center">BE (CSE) student</h5>
-        <span className="center">An Enthusiastic learner, especially passionate about Deep Learning and Web Debelopement</span>
+        <span className="center">An Enthusiastic learner, especially passionate about Artificial Intelligence and Web Development</span>
       </div>
       <ul id="contact-info">
         <li>
